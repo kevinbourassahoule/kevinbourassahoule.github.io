@@ -1,20 +1,17 @@
-# abort on errors
-set -e
-
 # build
 npm run build
 
 # navigate into the build output directory
 cd dist
 
-# deploying to a custom domain
-# echo 'www.example.com' > CNAME
+# deploy to a custom domain
+New-Item  -Path . -Name "CNAME" -ItemType "file" -Value "sarahetkev.in"
 
 git init
 git add -A
 git commit -m 'deploy'
 
-# deploying to https://kevinbourassahoule.github.io
+# deploy to https://kevinbourassahoule.github.io
 git push -f git@github.com:kevinbourassahoule/kevinbourassahoule.github.io.git master
 
-cd -
+cd ../
