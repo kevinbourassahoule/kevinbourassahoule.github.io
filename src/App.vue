@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="fixed top-0 left-0 right-0 bottom-0 overflow-y">
+  <div id="app" class="w-full">
     <div id="bg">
       <div id="bg-back"></div>
       <div id="bg-front"></div>
@@ -24,12 +24,6 @@ export default {
 
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
-
-#app {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
 
 #bg,
 #bg-back,

@@ -11,7 +11,7 @@
 
 <template>
   <div
-    class="home-container text-white text-center font-light px-4 mt-32 pt-64"
+    class="home-container text-white text-center font-light px-4 h-screen flex items-center justify-center"
   >
     <div
       class="text-4xl"
