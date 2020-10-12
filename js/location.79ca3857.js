@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["location"],{"8e3a":function(e,n,a){"use strict";a.r(n);var t=function(){var e=this,n=e.$createElement,a=e._self._c||n;return a("div",[e._v("Le vignoble de la Bauge")])},l=[],o={name:"Location"},c=o,i=a("2877"),u=Object(i["a"])(c,t,l,!1,null,null,null);n["default"]=u.exports}}]);
-//# sourceMappingURL=location.79ca3857.js.map
