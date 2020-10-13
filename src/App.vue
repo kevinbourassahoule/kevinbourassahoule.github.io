@@ -6,7 +6,9 @@
     </div>
     <div id="fg">
       <TheMenu />
-      <router-view />
+      <transition name="route-view" mode="out-in">
+        <router-view />
+      </transition>
     </div>
   </div>
 </template>
@@ -69,5 +71,15 @@ h4,
 h5,
 h6 {
   font-family: "Parisienne", cursive;
+}
+
+.route-view-enter-active,
+.route-view-leave-active {
+  @apply transition-opacity;
+  @apply duration-300;
+}
+.route-view-enter,
+.route-view-leave-to {
+  opacity: 0;
 }
 </style>

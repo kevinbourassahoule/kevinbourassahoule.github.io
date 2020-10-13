@@ -18,19 +18,21 @@
 <template>
   <div
     id="nav"
-    class="fixed top-0 left-0 right-0 text-center px-3 bg-black bg-opacity-50 text-white"
+    class="fixed top-0 left-0 right-0 text-center px-3 bg-black bg-opacity-50"
   >
     <router-link
       v-for="link in links"
       :key="link.routeName"
       :to="{ name: link.routeName }"
-      v-slot="{ href, navigate, isActive }"
+      v-slot="{ href, navigate, isExactActive  }"
     >
       <SkLink
         :href="href"
         @click="navigate"
-        class="inline-block text-white hover:text-primary px-5 py-3"
-        :class="{ active: isActive }"
+        class="inline-block text-white hover:text-primary-light px-5 py-3 border-b-2 border-transparent hover:border-primary-light"
+        :class="
+          isExactActive && 'active text-primary-light border-primary-light'
+        "
       >
         {{ link.label }}
       </SkLink>
