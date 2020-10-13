@@ -1,5 +1,10 @@
 <template>
-  <a :href="href" :target="target" @click="$emit('click', $event)">
+  <a
+    :href="href"
+    :target="target"
+    @click="$emit('click', $event)"
+    class="transition-colors duration-150"
+  >
     <slot></slot>
   </a>
 </template>

@@ -7,5 +7,9 @@ module.exports = {
       .use("i18n")
       .loader("@kazupon/vue-i18n-loader")
       .end();
+  },
+  pwa: {
+    name: "Le mariage à Sarah et Kevin",
+    themeColor: "#BF9D73"
   }
 };

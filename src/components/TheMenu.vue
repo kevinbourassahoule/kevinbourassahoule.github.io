@@ -29,7 +29,7 @@
       <SkLink
         :href="href"
         @click="navigate"
-        class="inline-block text-white px-5 py-3"
+        class="inline-block text-white hover:text-primary px-5 py-3"
         :class="{ active: isActive }"
       >
         {{ link.label }}
