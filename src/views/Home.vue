@@ -1,38 +1,45 @@
 <i18n>
 {
-  "en": {
-    "gettingMarried": "We're getting married {duration},<br /> on {date}."
-  },
-  "fr": {
-    "gettingMarried": "On se marie {duration},<br /> le {date}."
-  }
+  "en": {},
+  "fr": {}
 }
 </i18n>
 
 <template>
-  <div
-    class="home-container text-white text-center font-light px-4 h-screen flex items-center justify-center"
-  >
+  <div>
     <div
-      class="text-4xl"
-      v-html="
-        $t('gettingMarried', {
-          duration: durationUntilWedding,
-          date: weddingDate
-        })
-      "
-    ></div>
+      v-if="$route.name === 'home'"
+      class="m-2 p-3 rounded border inline-block"
+    >
+      <div class="mb-3">
+        <router-link
+          :to="{ name: 'sarah-home' }"
+          class="px-2 py-1 border rounded bg-purple-500"
+          >Sarah</router-link
+        >
+      </div>
+      <div class="mb-3">
+        <router-link
+          :to="{ name: 'wedding-home' }"
+          class="px-2 py-1 rounded bg-purple-500"
+          >Mariage</router-link
+        >
+      </div>
+      <div class="mb-3">
+        <router-link
+          :to="{ name: 'lus' }"
+          class="px-2 py-1 rounded bg-purple-500"
+          >Lus</router-link
+        >
+      </div>
+    </div>
+    <router-view />
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
-  name: "Home",
-  computed: {
-    ...mapGetters(["weddingDate", "durationUntilWedding"])
-  }
+  name: "Home"
 };
 </script>
 

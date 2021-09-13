@@ -24,7 +24,7 @@
       v-for="link in links"
       :key="link.routeName"
       :to="{ name: link.routeName }"
-      v-slot="{ href, navigate, isExactActive  }"
+      v-slot="{ href, navigate, isExactActive }"
     >
       <SkLink
         :href="href"
@@ -65,19 +65,19 @@ export default {
     return {
       links: [
         {
-          routeName: "home",
+          routeName: "wedding-home",
           label: this.$t("ourWedding")
         },
         {
-          routeName: "location",
+          routeName: "wedding-location",
           label: this.$t("location")
         },
         {
-          routeName: "schedule",
+          routeName: "wedding-schedule",
           label: this.$t("schedule")
         },
         {
-          routeName: "details",
+          routeName: "wedding-details",
           label: this.$t("details")
         }
       ]

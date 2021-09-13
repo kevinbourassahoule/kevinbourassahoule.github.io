@@ -1,4 +1,4 @@
-# mariage
+# Sarah & Kevin's website
 
 ## Project setup
 ```
