@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["location"],{"8e3a":function(e,t,n){"use strict";n.r(t);var a=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"w-full h-screen flex items-center justify-center"},[n("SkLink",{staticClass:"text-white text-3xl font-light hover:underline",attrs:{href:"https://labauge.com",target:"_blank"}},[e._v(" Vignoble de la Bauge ")])],1)},l=[],s={name:"Location"},i=s,c=n("2877"),r=Object(c["a"])(i,a,l,!1,null,null,null);t["default"]=r.exports}}]);
-//# sourceMappingURL=location.46857ae5.js.map
