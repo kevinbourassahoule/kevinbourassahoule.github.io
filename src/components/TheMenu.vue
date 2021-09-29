@@ -18,7 +18,7 @@
 <template>
   <div
     id="nav"
-    class="fixed top-0 left-0 right-0 text-center px-3 bg-black bg-opacity-50"
+    class="fixed top-0 left-0 right-0 text-center px-3 font-semibold"
   >
     <router-link
       v-for="link in links"
@@ -29,10 +29,8 @@
       <SkLink
         :href="href"
         @click="navigate"
-        class="inline-block text-white hover:text-primary-light px-5 py-3 border-b-2 border-transparent hover:border-primary-light"
-        :class="
-          isExactActive && 'active text-primary-light border-primary-light'
-        "
+        class="inline-block text-white text-opacity-50 hover:text-opacity-75 px-5 py-3 border-b-2 border-transparent hover:border-white"
+        :class="isExactActive && 'active text-opacity-100 border-white'"
       >
         {{ link.label }}
       </SkLink>
@@ -49,7 +47,7 @@
       v-if="locale === 'en'"
       href="#"
       @click="setLocale('fr')"
-      class="block text-white px-5 py-3"
+      class="inline-block text-white px-5 py-3"
     >
       Français
     </SkLink>

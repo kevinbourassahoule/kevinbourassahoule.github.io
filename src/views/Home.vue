@@ -9,7 +9,7 @@
   <div>
     <div
       v-if="$route.name === 'home'"
-      class="m-2 p-3 rounded border inline-block"
+      class="m-2 p-3 rounded border inline-block hidden"
     >
       <div class="mb-3">
         <router-link
@@ -25,13 +25,6 @@
           >Mariage</router-link
         >
       </div>
-      <div class="mb-3">
-        <router-link
-          :to="{ name: 'lus' }"
-          class="px-2 py-1 rounded bg-purple-500"
-          >Lus</router-link
-        >
-      </div>
     </div>
     <router-view />
   </div>
@@ -39,8 +32,15 @@
 
 <script>
 export default {
-  name: "Home"
+  name: "Home",
+  created() {
+    document.title = "Sarah et Kevin";
+  }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+body {
+  background: black;
+}
+</style>

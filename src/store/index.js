@@ -13,7 +13,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     locale: i18n.locale.substring(0, 2),
-    weddingDate: "2021-08-22"
+    weddingDate: "2022-08-21"
   },
   getters: {
     weddingDate: state => {

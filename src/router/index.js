@@ -48,12 +48,6 @@ const routes = [
         name: "sarah-home",
         component: () =>
           import(/* webpackChunkName: "sarah-home" */ "../views/SarahHome.vue")
-      },
-      {
-        path: "lus",
-        name: "lus",
-        component: () =>
-          import(/* webpackChunkName: "lus" */ "../views/Lus.vue")
       }
     ]
   }

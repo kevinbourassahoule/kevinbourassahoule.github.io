@@ -18,24 +18,24 @@
     </div>
     <div id="fg">
       <TheMenu />
+      <div
+        class="text-white text-center font-light px-4 mt-16 absolute top-0 left-0 right-0"
+      >
+        <div
+          class="text-4xl"
+          v-html="
+            $t('gettingMarried', {
+              duration: durationUntilWedding,
+              date: weddingDate
+            })
+          "
+        ></div>
+      </div>
       <transition name="route-view" mode="out-in">
         <router-view />
       </transition>
     </div>
   </div>
-  <!-- <div
-    class="home-container text-white text-center font-light px-4 h-screen flex items-center justify-center"
-  >
-    <div
-      class="text-4xl"
-      v-html="
-        $t('gettingMarried', {
-          duration: durationUntilWedding,
-          date: weddingDate
-        })
-      "
-    ></div>
-  </div> -->
 </template>
 
 <script>
@@ -46,6 +46,9 @@ export default {
   name: "WeddingHome",
   computed: {
     ...mapGetters(["weddingDate", "durationUntilWedding"])
+  },
+  created() {
+    document.title = "Le mariage à Sarah et Kevin";
   },
   components: {
     TheMenu
@@ -68,7 +71,7 @@ export default {
 }
 
 #bg-back {
-  background-image: url("/assets/img/champ.jpg");
+  background-image: url("/img/champ.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -94,7 +97,7 @@ export default {
 }
 
 #bg-front {
-  background-image: url("/assets/img/faire-part.png");
+  background-image: url("/img/faire-part.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
