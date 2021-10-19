@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.7c105241256c737374758c1368e381a0.js"
+  "/precache-manifest.9d6a4657485368917258f498c8277bac.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "mariage"});
