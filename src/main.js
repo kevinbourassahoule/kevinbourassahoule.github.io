@@ -3,12 +3,14 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import i18n from "./i18n";
-
 import "./importBaseComponents";
 
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 dayjs.locale("fr");
+
+import VueProgressiveImage from "vue-progressive-image";
+Vue.use(VueProgressiveImage);
 
 import "./assets/styles/index.css";
 

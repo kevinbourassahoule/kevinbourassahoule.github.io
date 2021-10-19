@@ -11,12 +11,20 @@ const routes = [
     children: [
       {
         path: "mariage",
-        name: "wedding-home",
+        name: "wedding-page",
         component: () =>
           import(
-            /* webpackChunkName: "wedding-home" */ "../views/WeddingHome.vue"
+            /* webpackChunkName: "wedding-page" */ "../views/WeddingPage.vue"
           ),
         children: [
+          {
+            path: "",
+            name: "wedding-home",
+            component: () =>
+              import(
+                /* webpackChunkName: "wedding-home" */ "../views/WeddingHome.vue"
+              )
+          },
           {
             path: "details",
             name: "wedding-details",

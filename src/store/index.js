@@ -13,7 +13,24 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     locale: i18n.locale.substring(0, 2),
-    weddingDate: "2022-08-21"
+    weddingDate: "2022-08-21",
+    weddingScheduleItems: [
+      {
+        from: "12:00",
+        to: "2:00 p.m.",
+        description: "Arrivée"
+      },
+      {
+        from: "2:00",
+        to: "4:00 p.m.",
+        description: "Cocktail"
+      },
+      {
+        from: "4:00",
+        to: "6:00 p.m.",
+        description: "Cérémonie"
+      }
+    ]
   },
   getters: {
     weddingDate: state => {
