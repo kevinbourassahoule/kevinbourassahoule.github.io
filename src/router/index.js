@@ -13,16 +13,14 @@ const routes = [
         path: "mariage",
         name: "wedding-page",
         component: () =>
-          import(
-            /* webpackChunkName: "wedding-page" */ "../views/WeddingPage.vue"
-          ),
+          import(/* webpackChunkName: "wedding" */ "../views/WeddingPage.vue"),
         children: [
           {
             path: "",
             name: "wedding-home",
             component: () =>
               import(
-                /* webpackChunkName: "wedding-home" */ "../views/WeddingHome.vue"
+                /* webpackChunkName: "wedding" */ "../views/WeddingHome.vue"
               )
           },
           {
@@ -30,7 +28,7 @@ const routes = [
             name: "wedding-details",
             component: () =>
               import(
-                /* webpackChunkName: "wedding-details" */ "../views/WeddingDetails.vue"
+                /* webpackChunkName: "wedding" */ "../views/WeddingDetails.vue"
               )
           },
           {
@@ -38,7 +36,7 @@ const routes = [
             name: "wedding-location",
             component: () =>
               import(
-                /* webpackChunkName: "wedding-location" */ "../views/WeddingLocation.vue"
+                /* webpackChunkName: "wedding" */ "../views/WeddingLocation.vue"
               )
           },
           {
@@ -46,7 +44,7 @@ const routes = [
             name: "wedding-schedule",
             component: () =>
               import(
-                /* webpackChunkName: "wedding-schedule" */ "../views/WeddingSchedule.vue"
+                /* webpackChunkName: "wedding" */ "../views/WeddingSchedule.vue"
               )
           }
         ]
@@ -55,7 +53,15 @@ const routes = [
         path: "moins-kev",
         name: "sarah-home",
         component: () =>
-          import(/* webpackChunkName: "sarah-home" */ "../views/SarahHome.vue")
+          import(/* webpackChunkName: "sarah" */ "../views/SarahHome.vue")
+      },
+      {
+        path: "minecraft",
+        name: "minecraft",
+        component: () =>
+          import(
+            /* webpackChunkName: "minecraft" */ "../views/MinecraftHome.vue"
+          )
       }
     ]
   }
