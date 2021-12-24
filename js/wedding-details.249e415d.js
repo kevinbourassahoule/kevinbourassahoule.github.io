@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["wedding-details"],{"580f":function(e,n,t){"use strict";t.r(n);var l=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div")},i=[],s=t("2877"),u={},a=Object(s["a"])(u,l,i,!1,null,null,null);n["default"]=a.exports}}]);
-//# sourceMappingURL=wedding-details.249e415d.js.map

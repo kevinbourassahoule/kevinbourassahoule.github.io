@@ -4,28 +4,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/404.html"
   },
   {
-    "revision": "306bdad72b687edef757",
-    "url": "/css/app.7094c722.css"
+    "revision": "70c4b231d3dbd70096f4",
+    "url": "/css/app.334c281b.css"
   },
   {
-    "revision": "909afa00e3bb447e3d94",
+    "revision": "5f81da37f50a52c34812",
     "url": "/css/home.b9c911ec.css"
   },
   {
-    "revision": "fbfc7f1a24958f78b505",
-    "url": "/css/sarah-home.32f14cb3.css"
+    "revision": "9d9caa9223e72058a16b",
+    "url": "/css/minecraft.f89178f7.css"
   },
   {
-    "revision": "b3dc2bc4b4bfb28bef3b",
-    "url": "/css/wedding-home.25274cbc.css"
+    "revision": "b816d3107a7de978baef",
+    "url": "/css/sarah.32f14cb3.css"
   },
   {
-    "revision": "58f7b730df8b08e18e24",
-    "url": "/css/wedding-location.10046822.css"
-  },
-  {
-    "revision": "642b1297086cb9b10e1c",
-    "url": "/css/wedding-page.9768bf62.css"
+    "revision": "a2b01986e0ac18f2ceb0",
+    "url": "/css/wedding.c30326ad.css"
   },
   {
     "revision": "9938b158e33af62399542c21fce11a79",
@@ -92,6 +88,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/maisons.jpg"
   },
   {
+    "revision": "2256d7a073f79935af3a1ea21565b6c9",
+    "url": "/img/mc-bg.png"
+  },
+  {
+    "revision": "541dd99754dd4ef79da84a3bf047e905",
+    "url": "/img/mc-sprites.png"
+  },
+  {
     "revision": "ac8ab4daa1f7804a442688d7de616d10",
     "url": "/img/sah.gif"
   },
@@ -112,44 +116,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/vignoble-grange-ext.jpg"
   },
   {
-    "revision": "d37db4e9e432c1fa9a93ac4c8b81a2ea",
+    "revision": "5df5a4730a496a5d15d9ee202a699ced",
     "url": "/index.html"
   },
   {
-    "revision": "306bdad72b687edef757",
-    "url": "/js/app.ab85fd26.js"
+    "revision": "70c4b231d3dbd70096f4",
+    "url": "/js/app.8fc7613f.js"
   },
   {
     "revision": "e1e2b62d4a2149fe540a",
     "url": "/js/chunk-vendors.acc3b2df.js"
   },
   {
-    "revision": "909afa00e3bb447e3d94",
-    "url": "/js/home.c4de20ce.js"
+    "revision": "5f81da37f50a52c34812",
+    "url": "/js/home.901cc5d6.js"
   },
   {
-    "revision": "fbfc7f1a24958f78b505",
-    "url": "/js/sarah-home.311a0360.js"
+    "revision": "9d9caa9223e72058a16b",
+    "url": "/js/minecraft.2dc3ec2d.js"
   },
   {
-    "revision": "fcc00ad00c4a89f1e9cc",
-    "url": "/js/wedding-details.249e415d.js"
+    "revision": "b816d3107a7de978baef",
+    "url": "/js/sarah.99f904ca.js"
   },
   {
-    "revision": "b3dc2bc4b4bfb28bef3b",
-    "url": "/js/wedding-home.7bea2f20.js"
-  },
-  {
-    "revision": "58f7b730df8b08e18e24",
-    "url": "/js/wedding-location.70144f7e.js"
-  },
-  {
-    "revision": "642b1297086cb9b10e1c",
-    "url": "/js/wedding-page.56865653.js"
-  },
-  {
-    "revision": "9833c49cf0e068e58457",
-    "url": "/js/wedding-schedule.89bf2629.js"
+    "revision": "a2b01986e0ac18f2ceb0",
+    "url": "/js/wedding.1d45b461.js"
   },
   {
     "revision": "bdf8c9c3af467eb061f7f45445e5bb94",
