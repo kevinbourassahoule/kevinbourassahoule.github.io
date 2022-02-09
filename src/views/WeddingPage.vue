@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css2?family=Amiri&family=Playfair+Display+SC&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Playfair+Display+SC&family=Roboto&display=swap');
 
 @font-face {
   font-family: "Erika Ormig";
@@ -116,8 +116,8 @@ export default {
 #bg-middle {
   background-image: linear-gradient(
     90deg,
-    rgba(11, 44, 40, 0.25),
-    rgba(125, 46, 24, 0.25)
+    rgba(125, 46, 24, 0.25),
+    rgba(11, 44, 40, 0.25)
   );
   background-position: center;
   background-size: cover;
@@ -141,15 +141,6 @@ export default {
   position: relative;
   z-index: 2;
 }
-
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//   font-family: "Parisienne", cursive;
-// }
 
 .route-view-enter-active,
 .route-view-leave-active {

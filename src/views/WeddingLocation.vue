@@ -45,9 +45,3 @@ export default {
   name: "WeddingLocation"
 };
 </script>
-
-<style lang="scss" scoped>
-.img-location-1 {
-  background-image: url("/img/vignoble-grange-ext.jpg");
-}
-</style>
