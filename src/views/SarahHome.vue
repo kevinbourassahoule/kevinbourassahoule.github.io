@@ -32,7 +32,7 @@ export default {
 .sah {
   font-family: "Teko", sans-serif;
   font-size: 47vw;
-  background-image: url("/img/sah.gif");
+  background-image: url("../assets/img/sah.gif");
 }
 
 .text-sarah {

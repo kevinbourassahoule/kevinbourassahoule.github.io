@@ -9,16 +9,18 @@
 
 <template>
   <div id="app" class="w-full">
-    <div id="bg">
-      <progressive-background
-        id="bg-back"
-        :src="bgHdUrl"
-        :placeholder="bgUrl"
-      />
+    <div class="hidden">
+      <!-- Preload backgrounds -->
+      <img src="../assets/img/maisons.jpg" />
+      <img src="../assets/img/champ.jpg" />
+      <img src="../assets/img/arbre-2.jpg" />
+    </div>
+    <div id="bg" class="w-full transition-colors ease-in-out duration-150" :style="{ 'background-color': pageColor }">
+      <div id="bg-back" :class="bgName"></div>
       <div id="bg-middle"></div>
       <!-- <div id="bg-front"></div> -->
     </div>
-    <div id="fg">
+    <div id="fg" class="transition transition-colors ease-in-out duration-150" :style="{ color: pageColor }">
       <WeddingMenu />
       <transition name="route-view" mode="out-in">
         <router-view />
@@ -28,6 +30,8 @@
 </template>
 
 <script>
+import * as THREE from 'three';
+import BIRDS from 'vanta/dist/vanta.birds.min.js';
 import WeddingMenu from "@/components/WeddingMenu";
 import { mapGetters } from "vuex";
 
@@ -35,37 +39,54 @@ export default {
   name: "WeddingPage",
   data() {
     return {
-      bgUrl: "/img/maisons.jpg",
-      bgHdUrl: "/img/maisons.hd.jpg"
+      bgName: "houses",
+      birds: null
     };
   },
   computed: {
-    ...mapGetters(["weddingDate", "durationUntilWedding"])
+    ...mapGetters(["weddingDate", "durationUntilWedding", "pageColor"])
   },
   watch: {
     $route() {
       switch (this.$route.name) {
         case "wedding-home":
-          this.bgUrl = "/img/maisons.jpg";
-          this.bgHdUrl = "/img/maisons.hd.jpg";
+          this.bgName = "houses";
           break;
         case "wedding-location":
-          this.bgUrl = "/img/champ.jpg";
-          this.bgHdUrl = "/img/champ.hd.jpg";
-          break;
-        case "wedding-schedule":
-          this.bgUrl = "/img/arbre-2.jpg";
-          this.bgHdUrl = "/img/arbre-2.hd.jpg";
+          this.bgName = "field";
           break;
         case "wedding-details":
-          this.bgUrl = "/img/maisons.jpg";
-          this.bgHdUrl = "/img/maisons.hd.jpg";
+          this.bgName = "tree";
           break;
       }
     }
   },
   created() {
     document.title = "Le mariage à Sarah et Kevin";
+  },
+  mounted() {
+    this.birds = BIRDS({
+      THREE,
+      el: "#bg-back",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color1: 0xbe540f,
+      color2: 0xfcd870,
+      colorMode: "lerpGradient",
+      quantity: .5,
+      backgroundAlpha: 0.00,
+      speedLimit: 4.00
+    })
+  },
+  beforeDestroy() {
+    if (this.birds) {
+      this.birds.destroy();
+    }
   },
   components: {
     WeddingMenu
@@ -74,21 +95,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Playfair+Display+SC&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Playfair+Display+SC&family=Roboto&family=Gothic+A1:wght@100;400;700&display=swap');
 
 @font-face {
   font-family: "Erika Ormig";
-  src: url("/fonts/erika-ormig.ttf") format("truetype");
+  src: url("../assets/fonts/erika-ormig.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Romelio Sans";
-  src: url("/fonts/romelio.ttf") format("truetype"),
-    url("/fonts/otf.ttf") format("otf");
+  src: url("../assets/fonts/romelio.ttf") format("truetype")
 }
 
-/deep/ {
-  font-family: "Amiri", serif;
+@font-face {
+  font-family: "Futura PT Demi";
+  src: url("../assets/fonts/Futura PT/FuturaPTDemi.otf") format("opentype"),
+    url("../assets/fonts/Futura PT/FuturaPTDemi.otf") format("opentype"),
+    url("../assets/fonts/Futura PT/FuturaPTDemi.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Futura PT Book";
+  src: url("../assets/fonts/Futura PT/FuturaPTBook.otf") format("opentype"),
+    url("../assets/fonts/Futura PT/FuturaPTBook.otf") format("opentype"),
+    url("../assets/fonts/Futura PT/FuturaPTBook.otf") format("truetype");
+}
+
+::v-deep {
+  font-family: 'Futura PT Book', sans-serif;
+
+  .text-heading {
+    font-family: 'Futura PT Demi', sans-serif;
+  }
 }
 
 #bg,
@@ -106,11 +144,23 @@ export default {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  transition: background-image 0.2s ease-in-out;
   width: calc(100% + 2rem);
   height: calc(100% + 2rem);
   margin: -1rem;
   z-index: 1;
-  // filter: blur(0.1rem);
+
+  &.houses {
+    background-image: url("../assets/img/maisons.jpg");
+  }
+
+  &.field {
+    background-image: url("../assets/img/champ.jpg");
+  }
+
+  &.tree {
+    background-image: url("../assets/img/arbre-2.jpg");
+  }
 }
 
 #bg-middle {
@@ -128,7 +178,7 @@ export default {
 }
 
 #bg-front {
-  background-image: url("/img/faire-part.png");
+  background-image: url("../assets/img/faire-part.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -152,7 +202,7 @@ export default {
   opacity: 0;
 }
 
-/deep/ .text-heading {
-  font-family: "Playfair Display SC", serif;
+.text-home {
+  color: #ffaa62;
 }
 </style>

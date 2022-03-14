@@ -16,20 +16,30 @@ export default new Vuex.Store({
     weddingDate: "2022-08-21",
     weddingScheduleItems: [
       {
-        from: "12:00",
-        to: "2:00 p.m.",
+        from: "16 h 00",
+        to: "",
         description: "Arrivée"
       },
       {
-        from: "2:00",
-        to: "4:00 p.m.",
+        from: "16 h 30",
+        to: "",
+        description: "Cérémonie"
+      },
+      {
+        from: "17 h 30",
+        to: "",
         description: "Cocktail"
       },
       {
-        from: "4:00",
-        to: "6:00 p.m.",
-        description: "Cérémonie"
-      }
+        from: "18 h 00",
+        to: "",
+        description: "Souper"
+      },
+      {
+        from: "20 h 00",
+        to: "",
+        description: "Soirée dansante"
+      },
     ]
   },
   getters: {
@@ -38,6 +48,15 @@ export default new Vuex.Store({
     },
     durationUntilWedding: state => {
       return dayjs().to(state.weddingDate);
+    },
+    pageColor: state => {
+      switch (state.route.name) {
+        case "wedding-home": return "#ffe462";
+        case "wedding-location": return "#994c00";
+        case "wedding-details": return "#ffdafa";
+        // case "wedding-details": return "#ffcdba";
+        default: return "#fff";
+      }
     }
   },
   mutations: {

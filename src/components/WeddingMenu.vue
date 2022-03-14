@@ -16,9 +16,9 @@
 </i18n>
 
 <template>
-  <div id="nav" class="text-heading text-center px-3 text-lg">
+  <div id="nav" class="flex items-center justify-center text-heading text-center px-3 py-2 text-xl backdrop-blur">
     <router-link
-      v-for="link in links"
+      v-for="link in leftLinks"
       :key="link.routeName"
       :to="{ name: link.routeName }"
       v-slot="{ href, navigate, isExactActive }"
@@ -26,39 +26,47 @@
       <SkLink
         :href="href"
         @click="navigate"
-        class="inline-block text-white text-opacity-50 hover:text-opacity-75 px-5 py-3 border-b-2 border-transparent hover:border-white"
-        :class="isExactActive && 'active text-opacity-100 border-white'"
+        class="olive relative inline-block uppercase text-white text-opacity-50 hover:text-opacity-75 px-5 py-3 w-48"
+        :class="isExactActive && 'active text-opacity-100'"
+        :style="isExactActive ? { color: pageColor } : null"
       >
         {{ link.label }}
       </SkLink>
     </router-link>
-    <!-- <SkLink
-      v-if="locale === 'fr'"
-      href="#"
-      @click="setLocale('en')"
-      class="inline-block text-white px-5 py-3"
+    <img src="../assets/img/monogram-white.png" class="px-5 h-10" />
+    <router-link
+      v-for="link in rightLinks"
+      :key="link.routeName"
+      :to="{ name: link.routeName }"
+      v-slot="{ href, navigate, isExactActive }"
     >
-      English
-    </SkLink>
-    <SkLink
-      v-if="locale === 'en'"
-      href="#"
-      @click="setLocale('fr')"
-      class="inline-block text-white px-5 py-3"
+      <SkLink
+        :href="href"
+        @click="navigate"
+        class="olive relative inline-block uppercase text-white text-opacity-50 hover:text-opacity-75 px-5 py-3 w-48"
+        :class="isExactActive && 'active text-opacity-100'"
+        :style="isExactActive ? { color: pageColor } : null"
+      >
+        {{ link.label }}
+      </SkLink>
+    </router-link>
+    <a
+      href="https://form.simplesurvey.com/f/l/rsvp-sk"
+      class="inline-block uppercase text-white text-opacity-50 hover:text-opacity-75 px-5 py-3 w-48"
     >
-      Français
-    </SkLink> -->
+      RSVP
+    </a>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
   name: "WeddingMenu",
   data() {
     return {
-      links: [
+      leftLinks: [
         {
           routeName: "wedding-home",
           label: this.$t("ourWedding")
@@ -66,11 +74,9 @@ export default {
         {
           routeName: "wedding-location",
           label: this.$t("location")
-        },
-        {
-          routeName: "wedding-schedule",
-          label: this.$t("schedule")
-        },
+        }
+      ],
+      rightLinks: [
         {
           routeName: "wedding-details",
           label: this.$t("details")
@@ -79,7 +85,8 @@ export default {
     };
   },
   computed: {
-    ...mapState(["locale"])
+    ...mapState(["locale"]),
+    ...mapGetters(["pageColor"])
   },
   methods: {
     ...mapActions(["setLocale"])
@@ -87,4 +94,16 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+  .olive.active::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    background-image: url('../assets/img/olive-branches/ob-04.svg');
+    background-repeat: no-repeat;
+    transform: rotate(-90deg);
+    width: 3rem;
+    height: 4rem;
+    left: calc(50% - 1.5rem);
+  }
+</style>

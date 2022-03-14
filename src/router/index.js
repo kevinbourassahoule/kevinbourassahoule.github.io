@@ -7,11 +7,10 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue"),
+    component: () => import(/* webpackChunkName: "home" */ "../views/HomePage.vue"),
     children: [
       {
         path: "mariage",
-        name: "wedding-page",
         component: () =>
           import(/* webpackChunkName: "wedding" */ "../views/WeddingPage.vue"),
         children: [
@@ -24,14 +23,6 @@ const routes = [
               )
           },
           {
-            path: "details",
-            name: "wedding-details",
-            component: () =>
-              import(
-                /* webpackChunkName: "wedding" */ "../views/WeddingDetails.vue"
-              )
-          },
-          {
             path: "lieu",
             name: "wedding-location",
             component: () =>
@@ -40,11 +31,27 @@ const routes = [
               )
           },
           {
-            path: "horaire",
-            name: "wedding-schedule",
+            path: "details",
+            name: "wedding-details",
             component: () =>
               import(
-                /* webpackChunkName: "wedding" */ "../views/WeddingSchedule.vue"
+                /* webpackChunkName: "wedding" */ "../views/WeddingDetails.vue"
+              )
+          },
+          // {
+          //   path: "horaire",
+          //   name: "wedding-rsvp",
+          //   component: () =>
+          //     import(
+          //       /* webpackChunkName: "wedding" */ "../views/WeddingSchedule.vue"
+          //     )
+          // },
+          {
+            path: "assets",
+            name: "wedding-assets",
+            component: () =>
+              import(
+                /* webpackChunkName: "wedding" */ "../views/WeddingAssets.vue"
               )
           }
         ]

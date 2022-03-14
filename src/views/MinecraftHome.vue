@@ -171,7 +171,7 @@ $cube-face-size: 100px;
 $sprite-size: 2400px;
 
 body {
-  background: url("/img/mc-bg.png") no-repeat center center fixed;
+  background: url("../assets/img/mc-bg.png") no-repeat center center fixed;
   background-size: cover;
   font-family: "Minecraftia", sans-serif;
 }
@@ -225,32 +225,32 @@ body {
 
 .cube__face--front {
   transform: rotateY(0deg) translateZ($cube-face-size / 2);
-  background-image: url("/img/mc-sprites.png");
+  background-image: url("../assets/img/mc-sprites.png");
   background-position: (-$cube-face-size * 3) 0;
 }
 .cube__face--right {
   transform: rotateY(90deg) translateZ($cube-face-size / 2);
-  background-image: url("/img/mc-sprites.png");
+  background-image: url("../assets/img/mc-sprites.png");
   background-position: (-$cube-face-size * 3) 0;
 }
 .cube__face--back {
   transform: rotateY(180deg) translateZ($cube-face-size / 2);
-  background-image: url("/img/mc-sprites.png");
+  background-image: url("../assets/img/mc-sprites.png");
   background-position: (-$cube-face-size * 3) 0;
 }
 .cube__face--left {
   transform: rotateY(-90deg) translateZ($cube-face-size / 2);
-  background-image: url("/img/mc-sprites.png");
+  background-image: url("../assets/img/mc-sprites.png");
   background-position: (-$cube-face-size * 3) 0;
 }
 .cube__face--top {
   transform: rotateX(90deg) translateZ($cube-face-size / 2);
-  background-image: url("/img/mc-sprites.png");
+  background-image: url("../assets/img/mc-sprites.png");
   background-position: (-$cube-face-size * 0) 0;
 }
 .cube__face--bottom {
   transform: rotateX(-90deg) translateZ($cube-face-size / 2);
-  background-image: url("/img/mc-sprites.png");
+  background-image: url("../assets/img/mc-sprites.png");
   background-position: (-$cube-face-size * 2) 0;
 }
 
