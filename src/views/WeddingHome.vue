@@ -14,7 +14,7 @@
 <template>
   <div class="flex items-center justify-center mt-24">
     <div
-      class="ob-10-mask max-w-sm w-28 h-24 sm:h-48"
+      class="ob-10-mask max-w-sm w-14 sm:w-28 h-24 sm:h-48"
       :style="{ 'backgroundColor': pageColor }"
     />
     <div class="text-center px-2 sm:px-12" :style="{ color: pageColor }">
@@ -23,7 +23,7 @@
       <div class='text-heading uppercase text-xl sm:text-5xl'>{{ $t('gettingMarried_line3', { date: weddingDate }) }}</div>
     </div>
     <div
-      class="ob-10-mask max-w-sm w-28 h-24 sm:h-48"
+      class="ob-10-mask max-w-sm w-14 sm:w-28 h-24 sm:h-48"
       :style="{ 'backgroundColor': pageColor, transform: 'scaleX(-1)' }"
     />
   </div>

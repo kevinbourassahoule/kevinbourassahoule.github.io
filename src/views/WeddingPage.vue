@@ -11,9 +11,9 @@
   <div id="app" class="w-full">
     <div class="hidden">
       <!-- Preload backgrounds -->
-      <img src="../assets/img/maisons.jpg" />
-      <img src="../assets/img/champ.jpg" />
-      <img src="../assets/img/arbre-2.jpg" />
+      <img src="../assets/img/maisons.min.jpg" />
+      <img src="../assets/img/champ.min.jpg" />
+      <img src="../assets/img/arbre-2.min.jpg" />
     </div>
     <div id="bg" class="w-full transition-colors ease-in-out duration-150" :style="{ 'background-color': pageColor }">
       <div id="bg-back" :class="bgName"></div>

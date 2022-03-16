@@ -52,7 +52,7 @@ export default new Vuex.Store({
     pageColor: state => {
       switch (state.route.name) {
         case "wedding-home": return "#ffe462";
-        case "wedding-location": return "#994c00";
+        case "wedding-location": return "#fbcdac";
         case "wedding-details": return "#ffdafa";
         // case "wedding-details": return "#ffcdba";
         default: return "#fff";
