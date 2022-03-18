@@ -9,7 +9,7 @@
 
 <template>
   <div id="app" class="w-full">
-    <div class="hidden">
+    <div v-if="preload" class="hidden">
       <!-- Preload backgrounds -->
       <img src="../assets/img/maisons.min.jpg" />
       <img src="../assets/img/champ.min.jpg" />
@@ -40,7 +40,8 @@ export default {
   data() {
     return {
       bgName: "houses",
-      birds: null
+      birds: null,
+      preload: false
     };
   },
   computed: {
@@ -65,27 +66,35 @@ export default {
     document.title = "Le mariage à Sarah et Kevin";
   },
   mounted() {
-    this.birds = BIRDS({
-      THREE,
-      el: "#bg-back",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color1: 0xbe540f,
-      color2: 0xfcd870,
-      colorMode: "lerpGradient",
-      quantity: .5,
-      backgroundAlpha: 0.00,
-      speedLimit: 4.00
-    })
+    try {
+      this.birds = BIRDS({
+        THREE,
+        el: "#bg-back",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color1: 0xbe540f,
+        color2: 0xfcd870,
+        colorMode: "lerpGradient",
+        quantity: .5,
+        backgroundAlpha: 0.00,
+        speedLimit: 4.00
+      });
+    }
+    catch {}
+
+    this.$nextTick(() => this.preload = true);
   },
   beforeDestroy() {
     if (this.birds) {
-      this.birds.destroy();
+      try {
+        this.birds.destroy();
+      }
+      catch {}
     }
   },
   components: {
@@ -151,15 +160,15 @@ export default {
   z-index: 1;
 
   &.houses {
-    background-image: url("../assets/img/maisons.jpg");
+    background-image: url("../assets/img/maisons.min.jpg");
   }
 
   &.field {
-    background-image: url("../assets/img/champ.jpg");
+    background-image: url("../assets/img/champ.min.jpg");
   }
 
   &.tree {
-    background-image: url("../assets/img/arbre-2.jpg");
+    background-image: url("../assets/img/arbre-2.min.jpg");
   }
 }
 

@@ -11,8 +11,10 @@
     "dressCode": "Code vestimentaire",
     "dressCodeDetails": "Cravate noire facultative.",
     "photography": "Photographie",
-    "photographyDetails": "Une photographe sera sur place tout au long de la soirée.  Les photos seront partagées ici-mêmes dans les semaines suivant le mariage.  On se rencontre en ligne avec le hashtag #SarahEtKevin2022 suite à l'événement!",
-    "schedule": "Horaire"
+    "photographyDetails": "Andrée-Anne Joly sera notre photographe pour la soirée. Pour la laisser faire son travail dans les meilleures conditions, veuillez laisser vos appareils photos avec flash de côté.  Les photos seront partagées ici-mêmes dans les semaines suivant le mariage.  On se rencontre en ligne avec le hashtag #SarahEtKevin2022 suite à l'événement!",
+    "schedule": "Horaire",
+    "transportation": "Déplacements",
+    "transportationDetails": "Un autobus partira à 15 h 45 de l'Auberge vers le Vignoble. Des départs du Vignoble vers l'Auberge se feront à 22 h 00, 24 h 00 et 2 h 00."
   }
 }
 </i18n>
@@ -28,21 +30,21 @@
           <div
             v-for="item in weddingScheduleItems"
             :key="item.from"
-            class="flex flex-col lg:flex-row items-center lg:items-baseline mb-12"
+            class="flex flex-col md:flex-row items-center md:items-baseline mb-12"
           >
-            <div class="lg:w-1/2 text-center lg:text-right lg:mr-10">
+            <div class="md:w-1/2 text-center md:text-right md:mr-10">
               {{ item.from }}
             </div>
-            <div class="lg:w-1/2 text-center lg:text-left">
+            <div class="md:w-1/2 text-center md:text-left">
               {{ item.description }}
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="w-full md:w-0 lg:w-1/3">
+    <div class="md:hidden w-full lg:w-1/3">
       <div
-        class="md:hidden ob-12-mask max-w-sm w-28 h-24 sm:h-36 mx-auto -mt-12 -rotate-90"
+        class="ob-12-mask max-w-sm w-28 h-24 sm:h-36 mx-auto -mt-12 -rotate-90"
         :style="{ 'backgroundColor': pageColor }"
       />
     </div>
@@ -64,8 +66,8 @@
         :style="{ 'backgroundColor': pageColor }"
       />
       <div class="text-center my-12">
-        <h2 class="text-heading uppercase text-3xl mb-3">{{ $t("dressCode") }}</h2>
-        <p class="text-justify text-2xl">{{ $t("dressCodeDetails") }}</p>
+        <h2 class="text-heading uppercase text-3xl mb-3">{{ $t("transportation") }}</h2>
+        <p class="text-justify text-2xl">{{ $t("transportationDetails") }}</p>
       </div>
     </div>
   </div>

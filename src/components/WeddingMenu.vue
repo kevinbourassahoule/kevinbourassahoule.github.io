@@ -38,7 +38,7 @@
           {{ link.label }}
         </SkLink>
       </router-link>
-      <div class="self-stretch justify-self-start flex justify-between shrink-0 order-1 md:order-2">
+      <div class="self-stretch justify-self-start flex justify-between shrink-0 order-1 md:order-2 mb-16 md:mb-0">
         <router-link :to="{ name: 'wedding-home' }">
           <img src="../assets/img/monogram-white.png" class="md:px-6 h-10" />
         </router-link>

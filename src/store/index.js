@@ -16,6 +16,11 @@ export default new Vuex.Store({
     weddingDate: "2022-08-21",
     weddingScheduleItems: [
       {
+        from: "15 h 45",
+        to: "",
+        description: "Départ de l'auberge"
+      },
+      {
         from: "16 h 00",
         to: "",
         description: "Arrivée"
@@ -39,6 +44,11 @@ export default new Vuex.Store({
         from: "20 h 00",
         to: "",
         description: "Soirée dansante"
+      },
+      {
+        from: "2 h 00",
+        to: "",
+        description: "Fin"
       },
     ]
   },
