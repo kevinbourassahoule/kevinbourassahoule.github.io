@@ -15,11 +15,11 @@ export default new Vuex.Store({
     locale: i18n.locale.substring(0, 2),
     weddingDate: "2022-08-21",
     weddingScheduleItems: [
-      {
-        from: "15 h 45",
-        to: "",
-        description: "Départ de l'auberge"
-      },
+      // {
+      //   from: "15 h 45",
+      //   to: "",
+      //   description: "Départ de l'auberge"
+      // },
       {
         from: "16 h 00",
         to: "",
@@ -30,25 +30,25 @@ export default new Vuex.Store({
         to: "",
         description: "Cérémonie"
       },
-      {
-        from: "17 h 30",
-        to: "",
-        description: "Cocktail"
-      },
-      {
-        from: "18 h 00",
-        to: "",
-        description: "Souper"
-      },
-      {
-        from: "20 h 00",
-        to: "",
-        description: "Soirée dansante"
-      },
+      // {
+      //   from: "17 h 30",
+      //   to: "",
+      //   description: "Cocktail"
+      // },
+      // {
+      //   from: "18 h 00",
+      //   to: "",
+      //   description: "Souper"
+      // },
+      // {
+      //   from: "20 h 00",
+      //   to: "",
+      //   description: "Soirée dansante"
+      // },
       {
         from: "2 h 00",
         to: "",
-        description: "Fin"
+        description: "Dernier départ"
       },
     ]
   },

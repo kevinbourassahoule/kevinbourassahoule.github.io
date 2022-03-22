@@ -12,7 +12,7 @@
 </i18n>
 
 <template>
-  <div class="flex items-center justify-center mt-24">
+  <div class="flex items-center justify-center mt-20 md:mt-8 xl:mt-20">
     <div
       class="ob-10-mask max-w-sm w-14 sm:w-28 h-24 sm:h-48"
       :style="{ 'backgroundColor': pageColor }"

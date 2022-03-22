@@ -26,7 +26,7 @@
           <div class="ob-18-mask absolute bottom-0 right-0 mr-5 mb-8 w-28 h-24 rotate-45 -scale-x-100" :style="{ 'background-color': pageColor }" />
         </div>
       </div>
-      <div class="location mb-12 mx-4 lg:mt-32 leading-10 order-1 lg:order-2 md:w-full opacity-0 transition ease-out duration-500">
+      <div class="location mb-12 mx-4 lg:mt-16 xl:mt-32 leading-10 order-1 lg:order-2 md:w-full opacity-0 transition ease-out duration-500">
         <div class="text-5xl md:text-6xl lg:text-6xl xl:text-7xl">
           <span>Le Vignoble </span>
           <span class="inline sm:hidden"></span>
@@ -38,14 +38,14 @@
       >
         <div class="card-border border border-white/50 border-2 rounded-t-full pt-32 lg:pt-36" :style="{ 'border-color': pageColor }">
           <div class="text-heading uppercase text-2xl sm:text-4xl lg:text-3xl xl:text-4xl mb-16 lg:mb-18">
-            Hébergements
+            Hébergement
           </div>
           <div>
             <a href="https://goo.gl/maps/T4ct1Hiid9vjk3Cc9" target="_blank" class="text-heading uppercase text-2xl">Auberge West Brome</a>
             <p class="px-6 mt-2 text-lg text-justify">
               Les 20 chambres de l'auberge ont été reservées sous le nom <em>Groupe Déry le 21 août</em>. 
-              Pour réserver, appelez à l'auberge au (450)&nbsp;266&#8209;7552. Premier arrivé, premier servi! 
-              La date limite pour réserver est le 20 mai.
+              Pour réserver, appelez à l'auberge au <a href="tel:4502667552">(450)&nbsp;266&#8209;7552</a> avant le 20 mai.
+              Premier arrivé, premier servi!
             </p>
           </div>
           <div class="ob-13-mask w-4 h-6 mx-auto my-3" :style="{ 'background-color': pageColor }" />

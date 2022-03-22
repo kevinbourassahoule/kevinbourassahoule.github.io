@@ -9,7 +9,7 @@
   },
   "fr": {
     "dressCode": "Code vestimentaire",
-    "dressCodeDetails": "Cravate noire facultative.",
+    "dressCodeDetails": "Tenues de cocktail semi-formelles sont les bienvenues (cravate noire en option).",
     "photography": "Photographie",
     "photographyDetails": "Andrée-Anne Joly sera notre photographe pour la soirée. Pour la laisser faire son travail dans les meilleures conditions, veuillez laisser vos appareils photos avec flash de côté.  Les photos seront partagées ici-mêmes dans les semaines suivant le mariage.  On se rencontre en ligne avec le hashtag #SarahEtKevin2022 suite à l'événement!",
     "schedule": "Horaire",
@@ -40,6 +40,13 @@
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="ob-20-mask max-w-sm w-14 h-16 -mt-6 mb-6 mx-auto"
+        :style="{ 'backgroundColor': pageColor }"
+      />
+      <div class="text-center text-2xl mx-12 mb-12">
+        Plus de détails suivront au fur et à mesure qu'ils se concrétisent.
       </div>
     </div>
     <div class="md:hidden w-full lg:w-1/3">
@@ -92,6 +99,10 @@ export default {
   }
   .ob-08-mask {
     mask-image: url('../assets/img/olive-branches/ob-08.svg');
+    mask-repeat: no-repeat;
+  }
+  .ob-20-mask {
+    mask-image: url('../assets/img/olive-branches/ob-20.svg');
     mask-repeat: no-repeat;
   }
 </style>
