@@ -11,7 +11,7 @@
     "dressCode": "Code vestimentaire",
     "dressCodeDetails": "Tenues de cocktail semi-formelles sont les bienvenues (cravate noire en option).",
     "photography": "Photographie",
-    "photographyDetails": "Andrée-Anne Joly sera notre photographe pour la soirée. Pour la laisser faire son travail dans les meilleures conditions, veuillez laisser vos appareils photos avec flash de côté.  Les photos seront partagées ici-mêmes dans les semaines suivant le mariage.  On se rencontre en ligne avec le hashtag #SarahEtKevin2022 suite à l'événement!",
+    "photographyDetails": "Andrée-Anne Joly sera notre photographe pour la soirée. Pour la laisser faire son travail dans les meilleures conditions, veuillez laisser vos appareils photos avec flash de côté.  Les photos seront partagées ici-même dans les semaines suivant le mariage.  On se rencontre en ligne avec le hashtag #SarahEtKevin2022 suite à l'événement!",
     "schedule": "Horaire",
     "transportation": "Déplacements",
     "transportationDetails": "Un autobus partira à 15 h 45 de l'Auberge vers le Vignoble. Des départs du Vignoble vers l'Auberge se feront à 22 h 00, 24 h 00 et 2 h 00."
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div
-        class="ob-20-mask max-w-sm w-14 h-16 -mt-6 mb-6 mx-auto"
+        class="ob-20-mask max-w-sm w-8 h-16 -mt-6 mb-6 mx-auto"
         :style="{ 'backgroundColor': pageColor }"
       />
       <div class="text-center text-2xl mx-12 mb-12">
