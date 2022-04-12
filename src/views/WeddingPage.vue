@@ -210,8 +210,4 @@ export default {
 .route-view-leave-to {
   opacity: 0;
 }
-
-.text-home {
-  color: #ffaa62;
-}
 </style>

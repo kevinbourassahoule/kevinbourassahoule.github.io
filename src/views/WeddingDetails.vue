@@ -10,6 +10,8 @@
   "fr": {
     "dressCode": "Code vestimentaire",
     "dressCodeDetails": "Tenues de cocktail semi-formelles sont les bienvenues (cravate noire en option).",
+    "gifts": "Cadeaux",
+    "giftsDetails": "Votre présence pour notre journée spéciale sera votre plus généreux cadeau!  Nous serons aussi très reconnaissants de cadeaux en argent, qui nous aideront à couvrir une partie de l'hospitalité promise.",
     "photography": "Photographie",
     "photographyDetails": "Andrée-Anne Joly sera notre photographe pour la soirée. Pour la laisser faire son travail dans les meilleures conditions, veuillez laisser vos appareils photos avec flash de côté.  Les photos seront partagées ici-même dans les semaines suivant le mariage.  On se rencontre en ligne avec le hashtag #SarahEtKevin2022 suite à l'événement!",
     "schedule": "Horaire",
@@ -51,7 +53,7 @@
     </div>
     <div class="md:hidden w-full lg:w-1/3">
       <div
-        class="ob-12-mask max-w-sm w-28 h-24 sm:h-36 mx-auto -mt-12 -rotate-90"
+        class="ob-04-mask max-w-sm w-28 h-24 sm:h-36 mx-auto -mt-12 -rotate-90"
         :style="{ 'backgroundColor': pageColor }"
       />
     </div>
@@ -76,6 +78,14 @@
         <h2 class="text-heading uppercase text-3xl mb-3">{{ $t("transportation") }}</h2>
         <p class="text-justify text-2xl">{{ $t("transportationDetails") }}</p>
       </div>
+      <div
+        class="ob-02-mask max-w-sm w-28 h-24 sm:h-36 -mt-12 -rotate-90"
+        :style="{ 'backgroundColor': pageColor }"
+      />
+      <div class="text-center my-12">
+        <h2 class="text-heading uppercase text-3xl mb-3">{{ $t("gifts") }}</h2>
+        <p class="text-justify text-2xl">{{ $t("giftsDetails") }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -93,12 +103,20 @@ export default {
 </script>
 
 <style lang="scss">
-  .ob-12-mask {
-    mask-image: url('../assets/img/olive-branches/ob-12.svg');
+  .ob-02-mask {
+    mask-image: url('../assets/img/olive-branches/ob-02.svg');
+    mask-repeat: no-repeat;
+  }
+  .ob-04-mask {
+    mask-image: url('../assets/img/olive-branches/ob-04.svg');
     mask-repeat: no-repeat;
   }
   .ob-08-mask {
     mask-image: url('../assets/img/olive-branches/ob-08.svg');
+    mask-repeat: no-repeat;
+  }
+  .ob-12-mask {
+    mask-image: url('../assets/img/olive-branches/ob-12.svg');
     mask-repeat: no-repeat;
   }
   .ob-20-mask {
