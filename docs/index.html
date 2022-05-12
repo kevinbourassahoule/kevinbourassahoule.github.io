@@ -1,20 +1,7 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="manifest" href="/site.webmanifest"><title>Sarah et Kevin</title><script>// Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script checks to see if a redirect is present in the query string,
-      // converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...),
-      // which won't cause the browser to attempt to load the new url.
-      // When the single page app is loaded further down in this file,
-      // the correct url will be waiting in the browser's history for
-      // the single page app to route accordingly.
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="manifest" href="/site.webmanifest"><title>Sarah et Kevin</title><script>(function(){
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
         }
-      }(window.location))</script><script defer="defer" type="module" src="/js/chunk-vendors.ec2119d9.js"></script><script defer="defer" type="module" src="/js/app.251427a4.js"></script><link href="/css/app.5a22ef69.css" rel="stylesheet"><script defer="defer" src="/js/chunk-vendors-legacy.4cfdf70d.js" nomodule></script><script defer="defer" src="/js/app-legacy.27b1b075.js" nomodule></script></head><body style="overflow-y:scroll"><noscript><strong>We're sorry but Sarah et Kevin doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
+      })();</script><script defer="defer" type="module" src="/js/chunk-vendors.ec2119d9.js"></script><script defer="defer" type="module" src="/js/app.3a97c195.js"></script><link href="/css/app.22fab5b0.css" rel="stylesheet"><script defer="defer" src="/js/chunk-vendors-legacy.4cfdf70d.js" nomodule></script><script defer="defer" src="/js/app-legacy.2f0cefcf.js" nomodule></script></head><body style="overflow-y:scroll"><noscript><strong>Cette page ne fonctionne pas sans JavaScript.</strong></noscript><div id="app"></div></body></html>

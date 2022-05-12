@@ -38,14 +38,14 @@ const routes = [
                 /* webpackChunkName: "wedding" */ "../views/WeddingDetails.vue"
               )
           },
-          // {
-          //   path: "horaire",
-          //   name: "wedding-rsvp",
-          //   component: () =>
-          //     import(
-          //       /* webpackChunkName: "wedding" */ "../views/WeddingSchedule.vue"
-          //     )
-          // },
+          {
+            path: "horaire",
+            name: "wedding-schedule",
+            component: () =>
+              import(
+                /* webpackChunkName: "wedding" */ "../views/WeddingSchedule.vue"
+              )
+          },
           {
             path: "assets",
             name: "wedding-assets",

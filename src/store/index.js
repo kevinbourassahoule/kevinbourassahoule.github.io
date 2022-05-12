@@ -64,7 +64,7 @@ export default new Vuex.Store({
         case "wedding-home": return "#ffe462";
         case "wedding-location": return "#fbcdac";
         case "wedding-details": return "#ffdafa";
-        // case "wedding-details": return "#ffcdba";
+        case "wedding-schedule": return "#ad8352"; // #be9b74
         default: return "#fff";
       }
     }

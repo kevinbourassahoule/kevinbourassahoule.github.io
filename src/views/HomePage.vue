@@ -35,7 +35,10 @@ export default {
   name: "HomePage",
   created() {
     document.title = "Sarah et Kevin";
-    window.location.href = "/#/mariage";
+    
+    if (this.$route.name === "home") {
+      this.$router.push({ name: "wedding-home" });
+    }
   }
 };
 </script>
