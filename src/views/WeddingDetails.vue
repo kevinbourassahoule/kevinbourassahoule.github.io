@@ -9,7 +9,7 @@
   },
   "fr": {
     "dressCode": "Code vestimentaire",
-    "dressCodeDetails": "Tenues de cocktail semi-formelles sont les bienvenues (cravate noire en option).",
+    "dressCodeDetails": "Tenues de cocktail semi-formelles sont les bienvenues.",
     "gifts": "Cadeaux",
     "giftsDetails": "Votre présence pour notre journée spéciale sera votre plus généreux cadeau!  Nous serons aussi très reconnaissants de cadeaux en argent, qui nous aideront à couvrir une partie de l'hospitalité promise.",
     "photography": "Photographie",
