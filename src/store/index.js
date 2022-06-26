@@ -15,11 +15,6 @@ export default new Vuex.Store({
     locale: i18n.locale.substring(0, 2),
     weddingDate: "2022-08-21",
     weddingScheduleItems: [
-      // {
-      //   from: "15 h 45",
-      //   to: "",
-      //   description: "Départ de l'auberge"
-      // },
       {
         from: "16 h 00",
         to: "",
@@ -30,32 +25,18 @@ export default new Vuex.Store({
         to: "",
         description: "Cérémonie"
       },
-      // {
-      //   from: "17 h 30",
-      //   to: "",
-      //   description: "Cocktail"
-      // },
-      // {
-      //   from: "18 h 00",
-      //   to: "",
-      //   description: "Souper"
-      // },
-      // {
-      //   from: "20 h 00",
-      //   to: "",
-      //   description: "Soirée dansante"
-      // },
       {
         from: "2 h 00",
         to: "",
         description: "Dernier départ"
-      },
+      }
     ]
   },
   getters: {
     weddingDate: state => {
       return dayjs(state.weddingDate).format("LL");
     },
+    rehearsalDate: () => dayjs().format("LL"),
     durationUntilWedding: state => {
       return dayjs().to(state.weddingDate);
     },
@@ -65,6 +46,7 @@ export default new Vuex.Store({
         case "wedding-location": return "#fbcdac";
         case "wedding-details": return "#ffdafa";
         case "wedding-schedule": return "#ad8352"; // #be9b74
+        case "wedding-rehearsal": return "#ffe462";
         default: return "#fff";
       }
     }

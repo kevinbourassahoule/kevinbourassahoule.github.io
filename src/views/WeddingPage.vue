@@ -14,6 +14,7 @@
       <img src="../assets/img/maisons.min.jpg" />
       <img src="../assets/img/champ.min.jpg" />
       <img src="../assets/img/arbre-2.min.jpg" />
+      <img src="../assets/img/marches-1.jpg" />
     </div>
     <div id="bg" class="w-full transition-colors ease-in-out duration-150" :style="{ 'background-color': pageColor }">
       <div id="bg-back" :class="bgName"></div>
@@ -48,7 +49,10 @@ export default {
     ...mapGetters(["weddingDate", "durationUntilWedding", "pageColor"])
   },
   watch: {
-    $route() {
+    $route() { this.resolveBackground(); }
+  },
+  methods: {
+    resolveBackground() {
       switch (this.$route.name) {
         case "wedding-home":
           this.bgName = "houses";
@@ -58,6 +62,9 @@ export default {
           break;
         case "wedding-details":
           this.bgName = "tree";
+          break;
+        case "wedding-rehearsal":
+          this.bgName = "stairs";
           break;
       }
     }
@@ -87,7 +94,10 @@ export default {
     }
     catch {}
 
-    this.$nextTick(() => this.preload = true);
+    this.$nextTick(() => { 
+      this.preload = true;
+      this.resolveBackground()
+    });
   },
   beforeDestroy() {
     if (this.birds) {
@@ -107,8 +117,9 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Playfair+Display+SC&family=Roboto&family=Gothic+A1:wght@100;400;700&display=swap');
 
 @font-face {
-  font-family: "Erika Ormig";
-  src: url("../assets/fonts/erika-ormig.ttf") format("truetype");
+  font-family: "TT2020";
+  src: url("../assets/fonts/TT2020/TT2020Base-Regular.ttf") format("truetype"),
+    url("../assets/fonts/TT2020/TT2020Base-Regular.woff2");
 }
 
 @font-face {
@@ -119,14 +130,12 @@ export default {
 @font-face {
   font-family: "Futura PT Demi";
   src: url("../assets/fonts/Futura PT/FuturaPTDemi.otf") format("opentype"),
-    url("../assets/fonts/Futura PT/FuturaPTDemi.otf") format("opentype"),
     url("../assets/fonts/Futura PT/FuturaPTDemi.otf") format("truetype");
 }
 
 @font-face {
   font-family: "Futura PT Book";
   src: url("../assets/fonts/Futura PT/FuturaPTBook.otf") format("opentype"),
-    url("../assets/fonts/Futura PT/FuturaPTBook.otf") format("opentype"),
     url("../assets/fonts/Futura PT/FuturaPTBook.otf") format("truetype");
 }
 
@@ -135,6 +144,15 @@ export default {
 
   .text-heading {
     font-family: 'Futura PT Demi', sans-serif;
+  }
+
+  .text-typewriter {
+    font-family: 'TT2020', monospace;
+  }
+
+  .bg-paper {
+    background-image: url("../assets/img/textures/paper.png");
+    background-color: #E9E6D8;
   }
 }
 
@@ -169,6 +187,10 @@ export default {
 
   &.tree {
     background-image: url("../assets/img/arbre-2.min.jpg");
+  }
+
+  &.stairs {
+    background-image: url("../assets/img/marches-1.jpg");
   }
 }
 

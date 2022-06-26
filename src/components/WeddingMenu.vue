@@ -31,7 +31,7 @@
         <SkLink
           :href="href"
           @click="navigate"
-          class="olive relative inline-block uppercase text-white text-opacity-50 hover:text-opacity-75 py-12 md:py-3 md:w-48 order-2 md:order-1"
+          class="olive relative inline-block uppercase text-white text-opacity-50 hover:text-opacity-75 py-8 md:py-3 md:w-48 order-2 md:order-1"
           :class="isExactActive && 'active text-opacity-100'"
           :style="isExactActive ? { color: pageColor } : null"
         >
@@ -63,7 +63,7 @@
         <SkLink
           :href="href"
           @click="navigate"
-          class="olive relative inline-block uppercase text-white text-opacity-50 hover:text-opacity-75 py-12 md:py-3 md:w-48 order-2 md:order-3"
+          class="olive relative inline-block uppercase text-white text-opacity-50 hover:text-opacity-75 py-8 md:py-3 md:w-48 order-2 md:order-3"
           :class="isExactActive && 'active text-opacity-100'"
           :style="isExactActive ? { color: pageColor } : null"
         >
@@ -72,7 +72,7 @@
       </router-link>
       <a
         href="https://form.simplesurvey.com/f/l/rsvp-sk"
-        class="uppercase text-white text-opacity-50 hover:text-opacity-75 py-12 md:py-3 md:w-48 order-3"
+        class="uppercase text-white text-opacity-50 hover:text-opacity-75 py-8 md:py-3 md:w-48 order-3"
       >
         RSVP
       </a>

@@ -1,33 +1,47 @@
 <template>
-  <div class="paper max-w-2xl mx-auto text-white mt-8 p-4" style="background-color: #E9E6D8" :style="{ color: pageColor }">
+  <div class="bg-paper max-w-2xl mx-auto text-white mt-8 p-4" :style="{ color: pageColor }">
     <div class="border-2 p-4" :style="{ 'border-color': pageColor }">
-      <h1 class="text-heading text-center text-5xl uppercase py-16">Horaire</h1>
-      <!-- <div class="flex">
-        <div class="w-20 border-r"></div>
-        <h2 v-for="location in locations" :key="location.id" class="flex-1 text-heading text-center text-4xl uppercase mb-6">
-          {{ location.name }}
-        </h2>
-      </div> -->
+      <h1 class="text-heading text-center text-5xl uppercase pt-16 pb-8">Horaire</h1>
+      <div class="pb-8">
+        <div v-for="(actorRow, i) in actorGrid" :key="i" class="flex justify-center">
+          <div v-for="actor in actorRow" :key="actor.id" class="w-6 h-6 sm:w-12 sm:h-12 mx-1 mb-2">
+            <button v-if="actor" type="button" :title="actor.name"
+              class="w-full h-full rounded-full bg-cover transition-opacity"
+              :class="[`actor-${actor.id}`, activeActorId !== null && activeActorId !== actor.id ? 'opacity-25' : null]"
+              @click="activeActorId = activeActorId !== actor.id ? actor.id : null"></button>
+          </div>
+        </div>
+      </div>
       <div>
         <div v-for="day in days" :key="day.name">
-          <div class="flex">
-            <div class="w-24"></div>
-            <h3 class="grow text-heading text-3xl uppercase pl-2 pb-3">
+          <div class="sm:flex">
+            <div class="sm:w-24"></div>
+            <h3 class="grow text-heading text-3xl uppercase sm:pl-2 pb-3">
               {{ day.name }}
             </h3>
           </div>
           <div>
-            <div v-for="event in day.events" :key="event.time" class="flex">
-              <div class="w-24 text-right text-xl pr-2 mr-2 ">
-                <span v-for="(letter, index) in event.time" :key="index" class="inline-block text-center w-3">{{ letter }}</span>
+            <div
+              v-for="moment in day.moments" 
+              :key="moment.time" 
+              class="sm:flex mb-4 sm:mb-0 transition-opacity"
+            >
+              <div class="sm:w-24 sm:text-right text-xl pr-2 mr-2 shrink-0" :class="isTimeHighlighted(moment) ? null : 'opacity-25'">
+                <span v-for="(letter, index) in moment.time" :key="index" class="inline-block text-center w-3">{{ letter
+                }}</span>
               </div>
-              <div v-for="location in locations" :key="location.id" class="text-justify text-xl mb-2">
-                <div v-if="event.locationId === location.id">{{ event.description }}</div>
+              <div class="text-justify text-xl sm:mb-2">
+                <div
+                  v-for="event in moment.events" 
+                  :key="event.description" 
+                  class="mb-2"
+                  :class="isEventHighlighted(event) ? null : 'opacity-25'"
+                >{{ event.description }}</div>
               </div>
             </div>
           </div>
-          <div class="flex">
-            <div class="w-24"></div>
+          <div class="sm:flex">
+            <div class="sm:w-24"></div>
             <div class="pb-8"></div>
           </div>
         </div>
@@ -42,207 +56,499 @@ import { mapGetters } from "vuex";
 export default {
   name: "WeddingSchedule",
   computed: {
-    ...mapGetters(["pageColor"])
+    ...mapGetters(["pageColor"]),
+    actorGrid() {
+      return [
+        ["sah", "kbh"],
+        ["ren", "guylou", "fd", "pmb", "fres", "bouboue", "dh"],
+        ["julie", "jenn", "eli", "ccm", "vache", "lus", "frank", "dt", "ant"],
+        ["france", "caro", "aaj", "mf", "2g"],
+      ].map(actorIds => actorIds.map(actorId => this.actors.find(x => x.id === actorId)));
+    },
+    activeDays() {
+      if (!this.activeActorId) return this.days;
+
+      return this.days
+        .map(day => ({
+          name: day.name,
+          events: day.events.filter(event => event.actorIds?.includes(this.activeActorId) ?? false)
+        }))
+        .filter(day => day.events.length > 0);
+    }
+  },
+  methods: {
+    isTimeHighlighted(moment) {
+      return moment.events.some(this.isEventHighlighted);
+    },
+    isEventHighlighted(event) {
+      if (!this.activeActorId) return true;
+      if (!event.actorIds) return false;
+      if (event.actorIds === "ALL") return true;
+      if (event.actorIds === "CORTEGE") return this.actorGrid.slice(0, -1).flat().some(x => x.id === this.activeActorId);
+
+      return event.actorIds.includes(this.activeActorId);
+    }
   },
   data() {
     return {
-      locations: [
+      activeActorId: null,
+      actors: [
         {
-          id: 1,
-          name: "Maison",
-        }, 
+          id: "sah",
+          name: "Sarah"
+        },
         {
-          id: 2,
-          name: "Vignoble"
-        }, 
+          id: "kbh",
+          name: "Kevin"
+        },
         {
-          id: 3,
-          name: "Auberge"
-        }
+          id: "guylou",
+          name: "Guylou"
+        },
+        {
+          id: "ren",
+          name: "René"
+        },
+        {
+          id: "bouboue",
+          name: "Geneviève"
+        },
+        {
+          id: "dh",
+          name: "David"
+        },
+        {
+          id: "fd",
+          name: "Florence"
+        },
+        {
+          id: "ccm",
+          name: "Camille"
+        },
+        {
+          id: "eli",
+          name: "Élizabeth"
+        },
+        {
+          id: "jenn",
+          name: "Jennifer"
+        },
+        {
+          id: "julie",
+          name: "Julie"
+        },
+        {
+          id: "vache",
+          name: "Vachon"
+        },
+        {
+          id: "pmb",
+          name: "Pierre-Michel"
+        },
+        {
+          id: "fres",
+          name: "Frédéric"
+        },
+        {
+          id: "lus",
+          name: "Ludovic"
+        },
+        {
+          id: "frank",
+          name: "François-Maxime"
+        },
+        {
+          id: "dt",
+          name: "David"
+        },
+        {
+          id: "ant",
+          name: "Anthony"
+        },
+        {
+          id: "aaj",
+          name: "Andrée-Anne Joly"
+        },
+        {
+          id: "mf",
+          name: "Mario"
+        },
+        {
+          id: "caro",
+          name: "Carolyne"
+        },
+        {
+          id: "france",
+          name: "France"
+        },
+        {
+          id: "2g",
+          name: "Deux Gourmandes"
+        },
       ],
       days: [
         {
           name: "Samedi",
-          events: [
+          moments: [
             {
-              time: "17:00",
-              locationId: 1,
-              description: "Début de la répétition"
+              time: "12:00",
+              events: [
+                {
+                  description: "Début du dîner de répétition",
+                  actorIds: "CORTEGE"
+                }
+              ]
             },
             {
-              time: "19:00",
-              locationId: 1,
-              description: "Début de la souper de la répétition"
-            },
-            {
-              time: "22:00",
-              locationId: 1,
-              description: "Fin du souper de la répétition"
+              time: "15:00",
+              events: [
+                {
+                  description: "Fin du dîner de répétition",
+                  actorIds: "CORTEGE"
+                }
+              ]
             }
           ]
         },
         {
           name: "Dimanche",
-          events: [
+          moments: [
             {
               time: "8:00",
-              locationId: 1,
-              description: "Départ vers le vignoble"
+              events: [
+                {
+                  description: "Départ vers le vignoble",
+                  actorIds: ["kbh", "sah"]
+                }
+              ]
             },
             {
               time: "9:00",
-              locationId: 2,
-              description: "Arrivée de la coiffeuse et de la maquilleuse"
+              events: [
+                {
+                  description: "Arrivée de la coiffeuse",
+                  actorIds: ["caro"]
+                },
+                {
+                  description: "Arrivée de la maquilleuse"
+                }
+              ]
             },
             {
               time: "9:15",
-              locationId: 2,
-              description: "Début du maquillage du cortège"
+              events: [
+                {
+                  description: "Début du maquillage du cortège",
+                  actorIds: ["sah", "fd", "ccm"]
+                }
+              ]
             },
             {
               time: "13:00",
-              locationId: 2,
-              description: "Arrivée de la photographe"
+              events: [
+                {
+                  description: "Arrivée de la photographe",
+                  actorIds: ["aaj"]
+                }
+              ]
+            },
+            {
+              time: "13:45",
+              events: [
+                {
+                  description: "Photographie des préparatifs de Sarah (vêtements, fleurs, voeux, alliance, etc.)",
+                  actorIds: ["sah", "aaj"]
+                }
+              ]
             },
             {
               time: "14:00",
-              locationId: 2,
-              description: "Arrivée du traiteur"
+              events: [
+                {
+                  description: "Arrivée du traiteur",
+                  actorIds: ["2g"]
+                }
+              ]
+            },
+            {
+              time: "14:45",
+              events: [
+                {
+                  description: "First look",
+                  actorIds: ["sah", "kbh", "aaj"]
+                }
+              ]
             },
             {
               time: "15:00",
-              locationId: 2,
-              description: "Enregistrement à l'auberge West Brome"
+              events: [
+                {
+                  description: "Enregistrement à l'auberge West Brome"
+                }
+              ]
             },
             {
               time: "15:30",
-              locationId: 2,
-              description: "Départ de la navette de l'auberge vers le vignoble"
+              events: [
+                {
+                  description: "Départ de la navette de l'auberge vers le vignoble"
+                },
+                {
+                  description: "Fin du first look"
+                }
+              ]
             },
             {
               time: "15:50",
-              locationId: 2,
-              description: "Arrivée des musiciens"
+              events: [
+                {
+                  description: "Arrivée des musiciens",
+                  actorIds: ["mf"]
+                }
+              ]
             },
             {
               time: "16:00",
-              locationId: 2,
-              description: "Musiciens commencent à jouer"
+              events: [
+                {
+                  description: "Musiciens commencent à jouer",
+                  actorIds: ["mf"]
+                }
+              ]
             },
             {
               time: "16:30",
-              locationId: 2,
-              description: "Début de la cérémonie"
+              events: [
+                {
+                  description: "Début de la cérémonie",
+                  actorIds: "ALL"
+                }
+              ]
             },
             {
               time: "17:00",
-              locationId: 2,
-              description: "Début du cocktail"
+              events: [
+                {
+                  description: "Fin de la cérémonie",
+                  actorIds: "ALL"
+                },
+                {
+                  description: "Début du cocktail",
+                  actorIds: "ALL"
+                },
+                {
+                  description: "Photos du groupe",
+                  actorIds: ["aaj"]
+                }
+              ]
             },
             {
-              time: "18:20",
-              locationId: 2,
-              description: "Invités sont dirigés vers la grange"
+              time: "17:10",
+              events: [
+                {
+                  description: "Photos de la famille immédiate"
+                }
+              ]
+            },
+            {
+              time: "17:25",
+              events: [
+                {
+                  description: "Photos avec le cortège"
+                }
+              ]
+            },
+            {
+              time: "17:45",
+              events: [
+                {
+                  description: "Fin des photos",
+                  actorIds: ["aaj"]
+                }
+              ]
+            },
+            {
+              time: "18:15",
+              events: [
+                {
+                  description: "Invités sont dirigés vers la grange"
+                }
+              ]
             },
             {
               time: "18:30",
-              locationId: 2,
-              description: "Introduction"
+              events: [
+                {
+                  description: "Introduction",
+                  actorIds: ["sah", "kbh"]
+                }
+              ]
             },
             {
               time: "18:35",
-              locationId: 2,
-              description: "Première danse"
+              events: [
+                {
+                  description: "Première danse",
+                  actorIds: ["sah", "kbh"]
+                }
+              ]
             },
             {
               time: "18:45",
-              locationId: 2,
-              description: "Les invités sont invités à se joindre à la piste de danse"
+              events: [
+                {
+                  description: "Les invités sont invités à se joindre à la piste de danse"
+                }
+              ]
             },
             {
               time: "18:55",
-              locationId: 2,
-              description: "Les invités trouvent leur place assise"
+              events: [
+                {
+                  description: "Les invités trouvent leur place assise"
+                }
+              ]
             },
             {
               time: "19:00",
-              locationId: 2,
-              description: "Début du service au buffet"
+              events: [
+                {
+                  description: "Début du service au buffet",
+                  actorIds: ["2g"]
+                }
+              ]
             },
             {
               time: "19:15",
-              locationId: 2,
-              description: "Discours de bienvenue des mariés"
+              events: [
+                {
+                  description: "Discours de bienvenue des mariés",
+                  actorIds: ["sah", "kbh"]
+                }
+              ]
             },
             {
               time: "19:30",
-              locationId: 2,
-              description: "Discours de la demoiselle d'honneur"
-            },
-            {
-              time: "19:35",
-              locationId: 2,
-              description: "Discours des garçons d'honneur"
+              events: [
+                {
+                  description: "Photos de couple au coucher du soleil",
+                  actorIds: ["sah", "kbh", "aaj"]
+                }
+              ]
             },
             {
               time: "19:45",
-              locationId: 2,
-              description: "Début du service de la sweet table et station café"
+              events: [
+                {
+                  description: "Début du service de la sweet table et station café",
+                  actorIds: ["2g"]
+                }
+              ]
             },
             {
-              time: "20:15",
-              locationId: 2,
-              description: "Danse des parents"
+              time: "20:00",
+              events: [
+                {
+                  description: "Discours de la demoiselle d'honneur",
+                  actorIds: ["fd"]
+                }
+              ]
+            },
+            {
+              time: "20:05",
+              events: [
+                {
+                  description: "Discours des garçons d'honneur",
+                  actorIds: ["pmb", "fres"]
+                }
+              ]
+            },
+            {
+              time: "20:30",
+              events: [
+                {
+                  description: "Danse des parents",
+                  actorIds: ["guylou", "ren", "bouboue", "dh"]
+                }
+              ]
             },
             {
               time: "21:00",
-              locationId: 2,
-              description: "Découpage du gâteau"
+              events: [
+                {
+                  description: "Découpage du gâteau"
+                }
+              ]
             },
             {
               time: "22:00",
-              locationId: 2,
-              description: "1er départ de la navette du vignoble vers l'auberge"
+              events: [
+                {
+                  description: "1er départ de la navette du vignoble vers l'auberge"
+                }
+              ]
             },
             {
               time: "22:30",
-              locationId: 2,
-              description: "Service du late snack"
-            },
-            {
-              time: "23:00",
-              locationId: 2,
-              description: "Départ de la photographe"
+              events: [
+                {
+                  description: "Service du late snack",
+                  actorIds: ["2g"]
+                }
+              ]
             },
             {
               time: "23:30",
-              locationId: 2,
-              description: "Départ du traiteur"
+              events: [
+                {
+                  description: "Départ de la photographe",
+                  actorIds: ["aaj"]
+                },
+                {
+                  description: "Départ du traiteur",
+                  actorIds: ["2g"]
+                }
+              ]
             },
             {
               time: "00:00",
-              locationId: 2,
-              description: "2e départ de la navette du vignoble vers l'auberge"
+              events: [
+                {
+                  description: "2e départ de la navette du vignoble vers l'auberge"
+                }
+              ]
             },
             {
               time: "02:00",
-              locationId: 2,
-              description: "Dernier départ de la navette du vignoble vers l'auberge"
+              events: [
+                {
+                  description: "Dernier départ de la navette du vignoble vers l'auberge",
+                  actorIds: "CORTEGE"
+                }
+              ]
             }
           ]
         },
         {
           name: "Lundi",
-          events: [
-            { 
+          moments: [
+            {
               time: "11:00",
-              locationId: 3,
-              description: "Début du brunch"
+              events: [
+                {
+                  description: "Début du brunch",
+                  actorIds: "CORTEGE"
+                }
+              ]
             },
-            { 
+            {
               time: "13:00",
-              locationId: 3,
-              description: "Fin du brunch"
+              events: [
+                {
+                  description: "Fin du brunch",
+                  actorIds: "CORTEGE"
+                }
+              ]
             }
           ]
         }
@@ -253,7 +559,95 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .paper {
-    background-image: url("../assets/img/textures/paper.png");
-  }
+.actor-sah {
+  background-image: url("../assets/img/acteurs/sah.jpg");
+}
+
+.actor-kbh {
+  background-image: url("../assets/img/acteurs/kbh.jpg");
+}
+
+.actor-guylou {
+  background-image: url("../assets/img/acteurs/guylou.jpg");
+}
+
+.actor-ren {
+  background-image: url("../assets/img/acteurs/ren.jpg");
+}
+
+.actor-bouboue {
+  background-image: url("../assets/img/acteurs/bouboue.jpg");
+}
+
+.actor-dh {
+  background-image: url("../assets/img/acteurs/dh.jpg");
+}
+
+.actor-fd {
+  background-image: url("../assets/img/acteurs/fd.jpg");
+}
+
+.actor-ccm {
+  background-image: url("../assets/img/acteurs/ccm.jpg");
+}
+
+.actor-eli {
+  background-image: url("../assets/img/acteurs/eli.jpg");
+}
+
+.actor-jenn {
+  background-image: url("../assets/img/acteurs/jenn.jpg");
+}
+
+.actor-julie {
+  background-image: url("../assets/img/acteurs/julie.png");
+}
+
+.actor-vache {
+  background-image: url("../assets/img/acteurs/vache.jpg");
+}
+
+.actor-pmb {
+  background-image: url("../assets/img/acteurs/pmb.jpg");
+}
+
+.actor-fres {
+  background-image: url("../assets/img/acteurs/fres.jpg");
+}
+
+.actor-lus {
+  background-image: url("../assets/img/acteurs/lus.jpg");
+}
+
+.actor-frank {
+  background-image: url("../assets/img/acteurs/frank.jpg");
+}
+
+.actor-ant {
+  background-image: url("../assets/img/acteurs/ant.jpg");
+}
+
+.actor-dt {
+  background-image: url("../assets/img/acteurs/dt.jpg");
+}
+
+.actor-caro {
+  background-image: url("../assets/img/acteurs/caro.jpg");
+}
+
+.actor-aaj {
+  background-image: url("../assets/img/acteurs/aaj.jpg");
+}
+
+.actor-france {
+  background-image: url("../assets/img/acteurs/france.jpg");
+}
+
+.actor-mf {
+  background-image: url("../assets/img/acteurs/mf.jpg");
+}
+
+.actor-2g {
+  background-image: url("../assets/img/acteurs/2g.png");
+}
 </style>

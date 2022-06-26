@@ -47,6 +47,14 @@ const routes = [
               )
           },
           {
+            path: "diner",
+            name: "wedding-rehearsal",
+            component: () =>
+              import(
+                /* webpackChunkName: "wedding" */ "../views/WeddingRehearsal.vue"
+              )
+          },
+          {
             path: "assets",
             name: "wedding-assets",
             component: () =>
