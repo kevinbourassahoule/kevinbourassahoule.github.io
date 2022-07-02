@@ -51,17 +51,18 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   name: "WeddingSchedule",
   computed: {
+    ...mapState(["actors"]),
     ...mapGetters(["pageColor"]),
     actorGrid() {
       return [
         ["sah", "kbh"],
-        ["ren", "guylou", "fd", "pmb", "fres", "bouboue", "dh"],
-        ["julie", "jenn", "eli", "ccm", "vache", "lus", "frank", "dt", "ant"],
+        ["ren", "guylou", "flo", "pirrrz", "fres", "bouboue", "friloux"],
+        ["julie", "jenn", "eli", "camou", "vache", "lus", "frank", "dave", "ant"],
         ["france", "caro", "aaj", "mf", "2g"],
       ].map(actorIds => actorIds.map(actorId => this.actors.find(x => x.id === actorId)));
     },
@@ -92,100 +93,6 @@ export default {
   data() {
     return {
       activeActorId: null,
-      actors: [
-        {
-          id: "sah",
-          name: "Sarah"
-        },
-        {
-          id: "kbh",
-          name: "Kevin"
-        },
-        {
-          id: "guylou",
-          name: "Guylou"
-        },
-        {
-          id: "ren",
-          name: "René"
-        },
-        {
-          id: "bouboue",
-          name: "Geneviève"
-        },
-        {
-          id: "dh",
-          name: "David"
-        },
-        {
-          id: "fd",
-          name: "Florence"
-        },
-        {
-          id: "ccm",
-          name: "Camille"
-        },
-        {
-          id: "eli",
-          name: "Élizabeth"
-        },
-        {
-          id: "jenn",
-          name: "Jennifer"
-        },
-        {
-          id: "julie",
-          name: "Julie"
-        },
-        {
-          id: "vache",
-          name: "Vachon"
-        },
-        {
-          id: "pmb",
-          name: "Pierre-Michel"
-        },
-        {
-          id: "fres",
-          name: "Frédéric"
-        },
-        {
-          id: "lus",
-          name: "Ludovic"
-        },
-        {
-          id: "frank",
-          name: "François-Maxime"
-        },
-        {
-          id: "dt",
-          name: "David"
-        },
-        {
-          id: "ant",
-          name: "Anthony"
-        },
-        {
-          id: "aaj",
-          name: "Andrée-Anne Joly"
-        },
-        {
-          id: "mf",
-          name: "Mario"
-        },
-        {
-          id: "caro",
-          name: "Carolyne"
-        },
-        {
-          id: "france",
-          name: "France"
-        },
-        {
-          id: "2g",
-          name: "Deux Gourmandes"
-        },
-      ],
       days: [
         {
           name: "Samedi",
@@ -239,7 +146,7 @@ export default {
               events: [
                 {
                   description: "Début du maquillage du cortège",
-                  actorIds: ["sah", "fd", "ccm"]
+                  actorIds: ["sah", "flo", "ccm"]
                 }
               ]
             },
@@ -450,7 +357,7 @@ export default {
               events: [
                 {
                   description: "Discours de la demoiselle d'honneur",
-                  actorIds: ["fd"]
+                  actorIds: ["flo"]
                 }
               ]
             },
@@ -459,7 +366,7 @@ export default {
               events: [
                 {
                   description: "Discours des garçons d'honneur",
-                  actorIds: ["pmb", "fres"]
+                  actorIds: ["pirrrz", "fres"]
                 }
               ]
             },
@@ -468,7 +375,7 @@ export default {
               events: [
                 {
                   description: "Danse des parents",
-                  actorIds: ["guylou", "ren", "bouboue", "dh"]
+                  actorIds: ["guylou", "ren", "bouboue", "friloux"]
                 }
               ]
             },
@@ -579,16 +486,16 @@ export default {
   background-image: url("../assets/img/acteurs/bouboue.jpg");
 }
 
-.actor-dh {
-  background-image: url("../assets/img/acteurs/dh.jpg");
+.actor-friloux {
+  background-image: url("../assets/img/acteurs/friloux.jpg");
 }
 
-.actor-fd {
-  background-image: url("../assets/img/acteurs/fd.jpg");
+.actor-flo {
+  background-image: url("../assets/img/acteurs/flo.jpg");
 }
 
-.actor-ccm {
-  background-image: url("../assets/img/acteurs/ccm.jpg");
+.actor-camou {
+  background-image: url("../assets/img/acteurs/camou.jpg");
 }
 
 .actor-eli {
@@ -607,8 +514,8 @@ export default {
   background-image: url("../assets/img/acteurs/vache.jpg");
 }
 
-.actor-pmb {
-  background-image: url("../assets/img/acteurs/pmb.jpg");
+.actor-pirrrz {
+  background-image: url("../assets/img/acteurs/pirrrz.jpg");
 }
 
 .actor-fres {
@@ -627,8 +534,8 @@ export default {
   background-image: url("../assets/img/acteurs/ant.jpg");
 }
 
-.actor-dt {
-  background-image: url("../assets/img/acteurs/dt.jpg");
+.actor-dave {
+  background-image: url("../assets/img/acteurs/dave.jpg");
 }
 
 .actor-caro {
