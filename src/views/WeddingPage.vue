@@ -66,6 +66,9 @@ export default {
         case "wedding-rehearsal":
           this.bgName = "stairs";
           break;
+        case "wedding-schedule":
+          this.bgName = "waterfall";
+          break;
       }
     }
   },
@@ -154,6 +157,51 @@ export default {
     background-image: url("../assets/img/textures/paper.png");
     background-color: #E9E6D8;
   }
+  
+  .ob-02-mask {
+    mask-image: url('../assets/img/olive-branches/ob-02.svg');
+    mask-repeat: no-repeat;
+  }
+
+  .ob-04-mask {
+    mask-image: url('../assets/img/olive-branches/ob-04.svg');
+    mask-repeat: no-repeat;
+  }
+
+  .ob-08-mask {
+    mask-image: url('../assets/img/olive-branches/ob-08.svg');
+    mask-repeat: no-repeat;
+  }
+
+  .ob-10-mask {
+    mask-image: url('../assets/img/olive-branches/ob-10.svg');
+    mask-repeat: no-repeat;
+  }
+
+  .ob-12-mask {
+    mask-image: url('../assets/img/olive-branches/ob-12.svg');
+    mask-repeat: no-repeat;
+  }
+
+  .ob-13-mask {
+    mask-image: url('../assets/img/olive-branches/ob-13.svg');
+    mask-repeat: no-repeat;
+  }
+
+  .ob-17-mask {
+    mask-image: url('../assets/img/olive-branches/ob-17.svg');
+    mask-repeat: no-repeat;
+  }
+
+  .ob-18-mask {
+    mask-image: url('../assets/img/olive-branches/ob-18.svg');
+    mask-repeat: no-repeat;
+  }
+
+  .ob-20-mask {
+    mask-image: url('../assets/img/olive-branches/ob-20.svg');
+    mask-repeat: no-repeat;
+  }
 }
 
 #bg,
@@ -190,7 +238,11 @@ export default {
   }
 
   &.stairs {
-    background-image: url("../assets/img/marches-1.jpg");
+    background-image: url("../assets/img/marches-1.min.jpg");
+  }
+
+  &.waterfall {
+    background-image: url("../assets/img/chute-1.min.jpg");
   }
 }
 

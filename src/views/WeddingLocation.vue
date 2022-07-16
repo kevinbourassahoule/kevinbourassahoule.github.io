@@ -91,16 +91,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .ob-13-mask {
-    mask-image: url('../assets/img/olive-branches/ob-13.svg');
-    mask-repeat: no-repeat;
-  }
-
-  .ob-18-mask {
-    mask-image: url('../assets/img/olive-branches/ob-18.svg');
-    mask-repeat: no-repeat;
-  }
-
   .card {
     @apply -translate-x-3;
     background-image: url("../assets/img/textures/arches.png");

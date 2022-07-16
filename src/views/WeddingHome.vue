@@ -6,6 +6,7 @@
   "fr": {
     "gettingMarried_line1": "SARAH et KEVIN",
     "gettingMarried_line2": "se marient {duration}, le",
+    "gettingMarried_line2_after": "se sont mariés {duration} le",
     "gettingMarried_line3": "{date}"
   }
 }
@@ -19,7 +20,8 @@
     />
     <div class="text-center px-2 sm:px-12" :style="{ color: pageColor }">
       <div class='text-heading text-2xl sm:text-6xl'>{{ $t('gettingMarried_line1') }}</div>
-      <div class='tracking-wide my-2 sm:text-3xl sm:my-6'>{{ $t('gettingMarried_line2', { duration: durationUntilWedding }) }}</div>
+      <div v-if="!areMarried" class='tracking-wide my-2 sm:text-3xl sm:my-6'>{{ $t('gettingMarried_line2', { duration: durationUntilWedding }) }}</div>
+      <div v-else class='tracking-wide my-2 sm:text-3xl sm:my-6'>{{ $t('gettingMarried_line2_after', { duration: durationUntilWedding }) }}</div>
       <div class='text-heading uppercase text-xl sm:text-5xl'>{{ $t('gettingMarried_line3', { date: weddingDate }) }}</div>
     </div>
     <div
@@ -35,14 +37,10 @@ import { mapGetters } from "vuex";
 export default {
   name: "WeddingPage",
   computed: {
-    ...mapGetters(["weddingDate", "durationUntilWedding", "pageColor"])
+    ...mapGetters(["weddingDate", "durationUntilWedding", "areMarried", "pageColor"])
   }
 };
 </script>
 
 <style lang="scss">
-  .ob-10-mask {
-    mask-image: url('../assets/img/olive-branches/ob-10.svg');
-    mask-repeat: no-repeat;
-  }
 </style>

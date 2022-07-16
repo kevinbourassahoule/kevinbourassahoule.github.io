@@ -13,7 +13,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     locale: i18n.locale.substring(0, 2),
-    weddingDate: "2022-08-21",
+    weddingDate: "2022-08-21T16:30-0400",
     weddingScheduleItems: [
       {
         from: "16 h 00",
@@ -192,10 +192,19 @@ export default new Vuex.Store({
         name: "Deux Gourmandes"
       },
     ],
+    actorGroups: [
+      {
+        id: "tous",
+        actorIds: ["sah", "kbh", "guylou", "ren", "bouboue", "friloux"]
+      }
+    ]
   },
   getters: {
     weddingDate: state => {
       return dayjs(state.weddingDate).format("LL");
+    },
+    areMarried: state => {
+      return dayjs().isAfter(state.weddingDate);
     },
     rehearsalDate: () => dayjs().format("LL"),
     durationUntilWedding: state => {

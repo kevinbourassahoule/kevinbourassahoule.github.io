@@ -1,21 +1,27 @@
 <template>
-  <div class="bg-paper max-w-2xl mx-auto text-white mt-8 p-4" :style="{ color: pageColor }">
+  <div class="bg-paper rounded-sm max-w-2xl mx-auto text-white mt-8 p-4" :style="{ color: pageColor }">
     <div class="border-2 p-4" :style="{ 'border-color': pageColor }">
       <h1 class="text-heading text-center text-5xl uppercase pt-16 pb-8">Horaire</h1>
       <div class="pb-8">
         <div v-for="(actorRow, i) in actorGrid" :key="i" class="flex justify-center">
           <div v-for="actor in actorRow" :key="actor.id" class="w-6 h-6 sm:w-12 sm:h-12 mx-1 mb-2">
             <button v-if="actor" type="button" :title="actor.name"
-              class="w-full h-full rounded-full bg-cover transition-opacity"
-              :class="[`actor-${actor.id}`, activeActorId !== null && activeActorId !== actor.id ? 'opacity-25' : null]"
+              class="w-full h-full rounded-full bg-cover transition-all hover:scale-110"
+              :class="[
+                `actor-${actor.id}`,
+                 activeActorId !== null && activeActorId !== actor.id ? 'opacity-25' : null,
+                 activeActorId === actor.id && 'scale-110'
+                ]"
               @click="activeActorId = activeActorId !== actor.id ? actor.id : null"></button>
           </div>
         </div>
       </div>
       <div>
         <div v-for="day in days" :key="day.name">
-          <div class="sm:flex">
-            <div class="sm:w-24"></div>
+          <div class="sm:flex" :class="isDayHighlighted(day) ? null : 'opacity-25'">
+            <div class="hidden sm:block sm:w-24 position-relative">
+              <div class="absolute ob-18-mask w-16 h-16 ml-6 mt-1 -rotate-90 -scale-x-100" :style="{ 'background-color': pageColor }" />
+            </div>
             <h3 class="grow text-heading text-3xl uppercase sm:pl-2 pb-3">
               {{ day.name }}
             </h3>
@@ -78,6 +84,9 @@ export default {
     }
   },
   methods: {
+    isDayHighlighted(day) {
+      return day.moments.some(this.isTimeHighlighted);
+    },
     isTimeHighlighted(moment) {
       return moment.events.some(this.isEventHighlighted);
     },
@@ -198,19 +207,28 @@ export default {
               time: "15:30",
               events: [
                 {
-                  description: "Départ de la navette de l'auberge vers le vignoble"
-                },
-                {
-                  description: "Fin du first look"
+                  description: "Arrivée des musiciens",
+                  actorIds: ["mf"]
                 }
               ]
             },
             {
-              time: "15:50",
+              time: "15:40",
               events: [
                 {
-                  description: "Arrivée des musiciens",
-                  actorIds: ["mf"]
+                  description: "Départ de la navette du Airbnb vers le vignoble",
+                  actorIds: ["lus", "frank", "dave", "ant"]
+                }
+              ]
+            },
+            {
+              time: "15:45",
+              events: [
+                {
+                  description: "Départ de la navette de l'auberge vers le vignoble"
+                },
+                {
+                  description: "Fin du first look"
                 }
               ]
             },
@@ -286,8 +304,12 @@ export default {
               time: "18:30",
               events: [
                 {
-                  description: "Introduction",
-                  actorIds: ["sah", "kbh"]
+                  description: "Fin du cocktail",
+                  actorIds: ["mf"]
+                },
+                {
+                  description: "Introduction des mariés et des parents",
+                  actorIds: ["lus", "flo", "sah", "kbh", "guylou", "René", "bouboue", "friloux"]
                 }
               ]
             },
@@ -295,7 +317,16 @@ export default {
               time: "18:35",
               events: [
                 {
-                  description: "Première danse",
+                  description: "Première danse des mariés",
+                  actorIds: ["sah", "kbh"]
+                }
+              ]
+            },
+            {
+              time: "18:40",
+              events: [
+                {
+                  description: "Discours de bienvenue des mariés",
                   actorIds: ["sah", "kbh"]
                 }
               ]
@@ -304,33 +335,8 @@ export default {
               time: "18:45",
               events: [
                 {
-                  description: "Les invités sont invités à se joindre à la piste de danse"
-                }
-              ]
-            },
-            {
-              time: "18:55",
-              events: [
-                {
-                  description: "Les invités trouvent leur place assise"
-                }
-              ]
-            },
-            {
-              time: "19:00",
-              events: [
-                {
                   description: "Début du service au buffet",
                   actorIds: ["2g"]
-                }
-              ]
-            },
-            {
-              time: "19:15",
-              events: [
-                {
-                  description: "Discours de bienvenue des mariés",
-                  actorIds: ["sah", "kbh"]
                 }
               ]
             },
@@ -340,15 +346,6 @@ export default {
                 {
                   description: "Photos de couple au coucher du soleil",
                   actorIds: ["sah", "kbh", "aaj"]
-                }
-              ]
-            },
-            {
-              time: "19:45",
-              events: [
-                {
-                  description: "Début du service de la sweet table et station café",
-                  actorIds: ["2g"]
                 }
               ]
             },
@@ -380,10 +377,33 @@ export default {
               ]
             },
             {
-              time: "21:00",
+              time: "20:45",
               events: [
                 {
-                  description: "Découpage du gâteau"
+                  description: "Découpage du gâteau",
+                  actorIds: ["sah", "kbh"]
+                },
+                {
+                  description: "Début du service de la sweet table et station café",
+                  actorIds: ["2g"]
+                }
+              ]
+            },
+            {
+              time: "21:15",
+              events: [
+                {
+                  description: "Danse des parents",
+                  actorIds: ["sah", "kbh", "ren"]
+                }
+              ]
+            },
+            {
+              time: "21:25",
+              events: [
+                {
+                  description: "Début du party",
+                  actorIds: "tous"
                 }
               ]
             },
@@ -391,7 +411,12 @@ export default {
               time: "22:00",
               events: [
                 {
-                  description: "1er départ de la navette du vignoble vers l'auberge"
+                  description: "1er départ de la navette du vignoble vers l'auberge",
+                  actorIds: ["ren", "guylou", "flo", "pirrrz", "fres", "bouboue", "friloux", "julie", "jenn", "eli", "camou"]
+                },
+                {
+                  description: "Départ de la photographe",
+                  actorIds: ["aaj"]
                 }
               ]
             },
@@ -408,10 +433,6 @@ export default {
               time: "23:30",
               events: [
                 {
-                  description: "Départ de la photographe",
-                  actorIds: ["aaj"]
-                },
-                {
                   description: "Départ du traiteur",
                   actorIds: ["2g"]
                 }
@@ -421,7 +442,8 @@ export default {
               time: "00:00",
               events: [
                 {
-                  description: "2e départ de la navette du vignoble vers l'auberge"
+                  description: "2e départ de la navette du vignoble vers l'auberge",
+                  actorIds: ["ren", "guylou", "flo", "pirrrz", "fres", "bouboue", "friloux", "julie", "jenn", "eli", "camou"]
                 }
               ]
             },
@@ -429,7 +451,7 @@ export default {
               time: "02:00",
               events: [
                 {
-                  description: "Dernier départ de la navette du vignoble vers l'auberge",
+                  description: "Dernier départ de la navette du vignoble vers l'auberge et vers le Airbnb",
                   actorIds: "CORTEGE"
                 }
               ]
@@ -440,7 +462,7 @@ export default {
           name: "Lundi",
           moments: [
             {
-              time: "11:00",
+              time: "10:00",
               events: [
                 {
                   description: "Début du brunch",
@@ -449,7 +471,7 @@ export default {
               ]
             },
             {
-              time: "13:00",
+              time: "12:00",
               events: [
                 {
                   description: "Fin du brunch",
