@@ -59,6 +59,7 @@ export default new Vuex.Store({
         name: "René",
         gender: "m",
         plusOne: null,
+        nickname: "Déry, René Déry",
         rehearsalId: "61094af1-2f99-4873-840a-0d3457580d8d"
       },
       {
@@ -67,6 +68,7 @@ export default new Vuex.Store({
         gender: "f",
         plusOne: null,
         rehearsalName: "Genny from the Block",
+        nickname: "M'lady Bouboue",
         rehearsalId: "61094af1-2f99-4873-840a-0d3457580d8d"
       },
       {
@@ -75,6 +77,7 @@ export default new Vuex.Store({
         gender: "m",
         plusOne: null,
         rehearsalName: "Friloux",
+        nickname: "M'Goodsir Dad",
         rehearsalId: "07e06a08-e79b-4769-b9d7-ca65c7157e26"
       },
       {
@@ -83,6 +86,7 @@ export default new Vuex.Store({
         gender: "f",
         plusOne: null,
         rehearsalName: "Floppie Bird",
+        nickname: "Floppie McBird",
         rehearsalId: "5733524c-c91a-45d3-bd79-f5ed79205ee6"
       },
       {
@@ -91,6 +95,7 @@ export default new Vuex.Store({
         gender: "f",
         plusOne: "Jacou",
         rehearsalName: "Camou",
+        nickname: "Camou",
         rehearsalId: "d271f9be-71dd-4211-8f96-e9e1618c38a7"
       },
       {
@@ -99,6 +104,7 @@ export default new Vuex.Store({
         gender: "f",
         plusOne: null,
         rehearsalName: "Lizzy",
+        nickname: "Lizzy",
         rehearsalId: "403e6043-eb65-40da-b052-f2cff7bf0e0e"
       },
       {
@@ -107,6 +113,7 @@ export default new Vuex.Store({
         gender: "f",
         plusOne: null,
         rehearsalName: "Jennicool",
+        nickname: "Jennicool",
         rehearsalId: "dd3986e4-6fc4-4161-8227-b5de296508ae"
       },
       {
@@ -115,6 +122,7 @@ export default new Vuex.Store({
         gender: "f",
         plusOne: null,
         rehearsalName: "Jolie",
+        nickname: "Jolie",
         rehearsalId: "1b70a8fe-6295-4361-854b-64ac7fd1d218"
       },
       {
@@ -131,6 +139,7 @@ export default new Vuex.Store({
         gender: "f",
         plusOne: null,
         rehearsalName: "Pirrrz Le Boi",
+        nickname: "Pirrrz Le Boi",
         rehearsalId: "7e890237-66cf-4491-914c-0afd35cd0bda"
       },
       {
@@ -139,6 +148,7 @@ export default new Vuex.Store({
         gender: "m",
         plusOne: null,
         rehearsalName: "Monsemoiseau Frestopher",
+        nickname: "Frestopher",
         rehearsalId: "994dc7be-7be4-405d-8a1d-a569c3761945"
       },
       {
@@ -147,14 +157,16 @@ export default new Vuex.Store({
         gender: "m",
         plusOne: null,
         rehearsalName: "Monsemoiseau Lus LeCao",
+        nickname: "Lus McCao",
         rehearsalId: "4e50379a-727d-4eb2-aae5-885dc7a83f5c"
       },
       {
         id: "frank",
-        name: "François-Maxime",
+        name: "Flank",
         gender: "m",
         plusOne: "Cocobongo",
         rehearsalName: "Flançois LeGacci",
+        nickname: "Flançois LeGacci",
         rehearsalId: "4e4829ba-4784-4da8-824c-60b849803da4"
       },
       {
@@ -162,6 +174,7 @@ export default new Vuex.Store({
         name: "David",
         gender: "m",
         plusOne: null,
+        nickname: "Dave",
         rehearsalId: "75ce2b65-1c17-4452-9767-c3230c2aee32"
       },
       {
@@ -169,6 +182,7 @@ export default new Vuex.Store({
         name: "Anthony",
         gender: "m",
         plusOne: "Pris",
+        nickname: "Anthongz",
         rehearsalId: "b0bdf9f2-d81f-40c8-893f-34d743cacff1"
       },
       {
@@ -215,7 +229,9 @@ export default new Vuex.Store({
         case "wedding-home": return "#ffe462";
         case "wedding-location": return "#fbcdac";
         case "wedding-details": return "#ffdafa";
-        case "wedding-schedule": return "#ad8352"; // #be9b74
+        case "wedding-schedule": return "#ad8352";
+        case "wedding-ceremony": return "#ad8352";
+        case "wedding-responsibilities": return "#ad8352";
         case "wedding-rehearsal": return "#ffe462";
         default: return "#fff";
       }

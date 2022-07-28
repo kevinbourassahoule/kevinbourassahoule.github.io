@@ -42,7 +42,19 @@
                   :key="event.description" 
                   class="mb-2"
                   :class="isEventHighlighted(event) ? null : 'opacity-25'"
-                >{{ event.description }}</div>
+                >
+                  <div>
+                    {{ event.description }}
+                  </div>
+                  <div v-if="debug" class="-mt-1">
+                    <span 
+                      v-for="actorId in getResolvedActorIds(event.actorIds)" 
+                      :key="actorId"
+                      class="inline-block bg-cover w-4 h-4 mr-1 rounded-full"
+                      :class="`actor-${actorId}`"
+                    ></span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -97,10 +109,17 @@ export default {
       if (event.actorIds === "CORTEGE") return this.actorGrid.slice(0, -1).flat().some(x => x.id === this.activeActorId);
 
       return event.actorIds.includes(this.activeActorId);
+    },
+    getResolvedActorIds(actorIds) {
+      if (actorIds === "ALL") return this.actorGrid.flat().map(x => x.id);
+      if (actorIds === "CORTEGE") return this.actorGrid.slice(0, -1).flat().map(x => x.id);
+
+      return actorIds;
     }
   },
   data() {
     return {
+      debug: true,
       activeActorId: null,
       days: [
         {
@@ -146,7 +165,8 @@ export default {
                   actorIds: ["caro"]
                 },
                 {
-                  description: "Arrivée de la maquilleuse"
+                  description: "Arrivée de la maquilleuse",
+                  actorIds: ["france"]
                 }
               ]
             },
@@ -155,7 +175,7 @@ export default {
               events: [
                 {
                   description: "Début du maquillage du cortège",
-                  actorIds: ["sah", "flo", "ccm"]
+                  actorIds: ["sah", "flo", "camou", "france"]
                 }
               ]
             },
@@ -217,7 +237,7 @@ export default {
               events: [
                 {
                   description: "Départ de la navette du Airbnb vers le vignoble",
-                  actorIds: ["lus", "frank", "dave", "ant"]
+                  actorIds: ["lus", "fres", "vache", "frank", "dave", "ant"]
                 }
               ]
             },
@@ -225,10 +245,12 @@ export default {
               time: "15:45",
               events: [
                 {
-                  description: "Départ de la navette de l'auberge vers le vignoble"
+                  description: "Départ de la navette de l'auberge vers le vignoble",
+                  actorIds: ["guylou", "ren", "bouboue", "friloux"]
                 },
                 {
-                  description: "Fin du first look"
+                  description: "Fin du first look",
+                  actorIds: ["sah", "kbh", "aaj"]
                 }
               ]
             },
@@ -271,7 +293,8 @@ export default {
               time: "17:10",
               events: [
                 {
-                  description: "Photos de la famille immédiate"
+                  description: "Photos de la famille immédiate",
+                  actorIds: ["sah", "kbh", "guylou", "ren", "bouboue", "friloux", "flo", "aaj"]
                 }
               ]
             },
@@ -279,7 +302,8 @@ export default {
               time: "17:25",
               events: [
                 {
-                  description: "Photos avec le cortège"
+                  description: "Photos avec le cortège",
+                  actorIds: "CORTEGE"
                 }
               ]
             },
@@ -309,7 +333,7 @@ export default {
                 },
                 {
                   description: "Introduction des mariés et des parents",
-                  actorIds: ["lus", "flo", "sah", "kbh", "guylou", "René", "bouboue", "friloux"]
+                  actorIds: ["lus", "flo", "sah", "kbh", "guylou", "ren", "bouboue", "friloux"]
                 }
               ]
             },
@@ -333,6 +357,15 @@ export default {
             },
             {
               time: "18:45",
+              events: [
+                {
+                  description: "Danse gênante du marié et de ses groomsmen",
+                  actorIds: ["kbh", "pirrrz", "fres", "lus", "frank", "dave", "ant", "vache"]
+                }
+              ]
+            },
+            {
+              time: "18:50",
               events: [
                 {
                   description: "Début du service au buffet",
@@ -368,11 +401,20 @@ export default {
               ]
             },
             {
+              time: "20:15",
+              events: [
+                {
+                  description: "Discours des parents à Sarah",
+                  actorIds: ["guylou", "ren"]
+                }
+              ]
+            },
+            {
               time: "20:30",
               events: [
                 {
-                  description: "Danse des parents",
-                  actorIds: ["guylou", "ren", "bouboue", "friloux"]
+                  description: "Discours des parents à Kevin",
+                  actorIds: ["bouboue", "friloux"]
                 }
               ]
             },
@@ -394,7 +436,7 @@ export default {
               events: [
                 {
                   description: "Danse des parents",
-                  actorIds: ["sah", "kbh", "ren"]
+                  actorIds: ["sah", "kbh", "guylou", "ren", "bouboue", "friloux"]
                 }
               ]
             },
@@ -488,95 +530,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.actor-sah {
-  background-image: url("../assets/img/acteurs/sah.jpg");
-}
 
-.actor-kbh {
-  background-image: url("../assets/img/acteurs/kbh.jpg");
-}
-
-.actor-guylou {
-  background-image: url("../assets/img/acteurs/guylou.jpg");
-}
-
-.actor-ren {
-  background-image: url("../assets/img/acteurs/ren.jpg");
-}
-
-.actor-bouboue {
-  background-image: url("../assets/img/acteurs/bouboue.jpg");
-}
-
-.actor-friloux {
-  background-image: url("../assets/img/acteurs/friloux.jpg");
-}
-
-.actor-flo {
-  background-image: url("../assets/img/acteurs/flo.jpg");
-}
-
-.actor-camou {
-  background-image: url("../assets/img/acteurs/camou.jpg");
-}
-
-.actor-eli {
-  background-image: url("../assets/img/acteurs/eli.jpg");
-}
-
-.actor-jenn {
-  background-image: url("../assets/img/acteurs/jenn.jpg");
-}
-
-.actor-julie {
-  background-image: url("../assets/img/acteurs/julie.png");
-}
-
-.actor-vache {
-  background-image: url("../assets/img/acteurs/vache.jpg");
-}
-
-.actor-pirrrz {
-  background-image: url("../assets/img/acteurs/pirrrz.jpg");
-}
-
-.actor-fres {
-  background-image: url("../assets/img/acteurs/fres.jpg");
-}
-
-.actor-lus {
-  background-image: url("../assets/img/acteurs/lus.jpg");
-}
-
-.actor-frank {
-  background-image: url("../assets/img/acteurs/frank.jpg");
-}
-
-.actor-ant {
-  background-image: url("../assets/img/acteurs/ant.jpg");
-}
-
-.actor-dave {
-  background-image: url("../assets/img/acteurs/dave.jpg");
-}
-
-.actor-caro {
-  background-image: url("../assets/img/acteurs/caro.jpg");
-}
-
-.actor-aaj {
-  background-image: url("../assets/img/acteurs/aaj.jpg");
-}
-
-.actor-france {
-  background-image: url("../assets/img/acteurs/france.jpg");
-}
-
-.actor-mf {
-  background-image: url("../assets/img/acteurs/mf.jpg");
-}
-
-.actor-2g {
-  background-image: url("../assets/img/acteurs/2g.png");
-}
 </style>

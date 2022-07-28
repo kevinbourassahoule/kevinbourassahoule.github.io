@@ -23,6 +23,22 @@
     </div>
     <div id="fg" class="transition transition-colors ease-in-out duration-150" :style="{ color: pageColor }">
       <WeddingMenu />
+      <div v-if="isWeddingPartyPage" class="max-w-2xl mx-auto mt-8 text-white">
+        <div class="text-4xl text-heading text-center mb-4">
+          <h1>Cortège et fournisseurs</h1>
+        </div>
+        <div class="text-center text-lg uppercase drop-shadow">
+          <router-link :to="{ name: 'wedding-schedule' }" v-slot="{ href, navigate, isExactActive }">
+            <a :href="href" @click="navigate" class="inline-block text-heading border-2 rounded-lg hover:bg-white/25 p-2 mx-2 transition-colors" :class="{ 'border-transparent': !isExactActive, 'border-current': isExactActive }">Horaire</a>
+          </router-link>
+          <router-link :to="{ name: 'wedding-ceremony' }" v-slot="{ href, navigate, isExactActive }">
+            <a :href="href" @click="navigate" class="inline-block text-heading border-2 rounded-lg hover:bg-white/25 p-2 mx-2 transition-colors" :class="{ 'border-transparent': !isExactActive, 'border-current': isExactActive }">Cérémonie</a>
+          </router-link>
+          <router-link :to="{ name: 'wedding-responsibilities' }" v-slot="{ href, navigate, isExactActive }">
+            <a :href="href" @click="navigate" class="inline-block text-heading border-2 rounded-lg hover:bg-white/25 p-2 mx-2 transition-colors" :class="{ 'border-transparent': !isExactActive, 'border-current': isExactActive }">Responsabilités</a>
+          </router-link>
+        </div>
+      </div>
       <transition name="route-view" mode="out-in">
         <router-view />
       </transition>
@@ -46,7 +62,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["weddingDate", "durationUntilWedding", "pageColor"])
+    ...mapGetters(["weddingDate", "durationUntilWedding", "pageColor"]),
+    isWeddingPartyPage() {
+      return ["wedding-schedule", "wedding-ceremony", "wedding-responsibilities"].includes(this.$route.name);
+    }
   },
   watch: {
     $route() { this.resolveBackground(); }
@@ -67,6 +86,8 @@ export default {
           this.bgName = "stairs";
           break;
         case "wedding-schedule":
+        case "wedding-ceremony":
+        case "wedding-responsibilities":
           this.bgName = "waterfall";
           break;
       }
@@ -201,6 +222,98 @@ export default {
   .ob-20-mask {
     mask-image: url('../assets/img/olive-branches/ob-20.svg');
     mask-repeat: no-repeat;
+  }
+
+  .actor-sah {
+    background-image: url("../assets/img/acteurs/sah.jpg");
+  }
+
+  .actor-kbh {
+    background-image: url("../assets/img/acteurs/kbh.jpg");
+  }
+
+  .actor-guylou {
+    background-image: url("../assets/img/acteurs/guylou.jpg");
+  }
+
+  .actor-ren {
+    background-image: url("../assets/img/acteurs/ren.jpg");
+  }
+
+  .actor-bouboue {
+    background-image: url("../assets/img/acteurs/bouboue.jpg");
+  }
+
+  .actor-friloux {
+    background-image: url("../assets/img/acteurs/friloux.jpg");
+  }
+
+  .actor-flo {
+    background-image: url("../assets/img/acteurs/flo.jpg");
+  }
+
+  .actor-camou {
+    background-image: url("../assets/img/acteurs/camou.jpg");
+  }
+
+  .actor-eli {
+    background-image: url("../assets/img/acteurs/eli.jpg");
+  }
+
+  .actor-jenn {
+    background-image: url("../assets/img/acteurs/jenn.jpg");
+  }
+
+  .actor-julie {
+    background-image: url("../assets/img/acteurs/julie.png");
+  }
+
+  .actor-vache {
+    background-image: url("../assets/img/acteurs/vache.jpg");
+  }
+
+  .actor-pirrrz {
+    background-image: url("../assets/img/acteurs/pirrrz.jpg");
+  }
+
+  .actor-fres {
+    background-image: url("../assets/img/acteurs/fres.jpg");
+  }
+
+  .actor-lus {
+    background-image: url("../assets/img/acteurs/lus.jpg");
+  }
+
+  .actor-frank {
+    background-image: url("../assets/img/acteurs/frank.jpg");
+  }
+
+  .actor-ant {
+    background-image: url("../assets/img/acteurs/ant.jpg");
+  }
+
+  .actor-dave {
+    background-image: url("../assets/img/acteurs/dave.jpg");
+  }
+
+  .actor-caro {
+    background-image: url("../assets/img/acteurs/caro.jpg");
+  }
+
+  .actor-aaj {
+    background-image: url("../assets/img/acteurs/aaj.jpg");
+  }
+
+  .actor-france {
+    background-image: url("../assets/img/acteurs/france.jpg");
+  }
+
+  .actor-mf {
+    background-image: url("../assets/img/acteurs/mf.jpg");
+  }
+
+  .actor-2g {
+    background-image: url("../assets/img/acteurs/2g.png");
   }
 }
 

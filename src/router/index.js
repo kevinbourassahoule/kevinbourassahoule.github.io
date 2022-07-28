@@ -47,6 +47,22 @@ const routes = [
               )
           },
           {
+            path: "ceremonie",
+            name: "wedding-ceremony",
+            component: () =>
+              import(
+                /* webpackChunkName: "wedding" */ "../views/WeddingCeremony.vue"
+              )
+          },
+          {
+            path: "responsabilites",
+            name: "wedding-responsibilities",
+            component: () =>
+              import(
+                /* webpackChunkName: "wedding" */ "../views/WeddingResponsibilities.vue"
+              )
+          },
+          {
             path: "diner",
             name: "wedding-rehearsal",
             component: () =>
