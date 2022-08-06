@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-paper rounded-sm max-w-2xl mx-auto text-white mt-8 p-4" :style="{ color: pageColor }">
+  <div class="bg-paper rounded-sm max-w-2xl mx-auto text-white my-8 p-4" :style="{ color: pageColor }">
     <div class="border-2 p-4" :style="{ 'border-color': pageColor }">
       <h1 class="text-heading text-center text-5xl uppercase pt-16 pb-8">Horaire</h1>
       <div class="pb-8">
@@ -15,6 +15,18 @@
               @click="activeActorId = activeActorId !== actor.id ? actor.id : null"></button>
           </div>
         </div>
+      </div>
+      <div class="text-center pb-8 print:hidden">
+        <button 
+          class="inline-flex items-center border px-3 py-1 rounded-full transition-colors" 
+          :class="debug ? 'border-emerald-900/50 bg-emerald-900/25 text-emerald-900' : 'border-current'"
+          @click="debug = !debug"
+         >
+          <span class="overflow-hidden transition-all text-emerald-900" :class="debug ? 'w-4' : 'w-0'">
+            ✓
+          </span>
+          <span>Afficher les personnes concernées</span>
+        </button>
       </div>
       <div>
         <div v-for="day in days" :key="day.name">
@@ -79,9 +91,9 @@ export default {
     actorGrid() {
       return [
         ["sah", "kbh"],
-        ["ren", "guylou", "flo", "pirrrz", "fres", "bouboue", "friloux"],
+        ["ren", "guylou", "flo", "fres", "pirrrz", "van", "isla", "bouboue", "friloux"],
         ["julie", "jenn", "eli", "camou", "vache", "lus", "frank", "dave", "ant"],
-        ["france", "caro", "aaj", "mf", "2g"],
+        ["france", "caro", "aaj", "mf", "2g", "fleur"],
       ].map(actorIds => actorIds.map(actorId => this.actors.find(x => x.id === actorId)));
     },
     activeDays() {
@@ -119,7 +131,7 @@ export default {
   },
   data() {
     return {
-      debug: true,
+      debug: false,
       activeActorId: null,
       days: [
         {
@@ -180,6 +192,15 @@ export default {
               ]
             },
             {
+              time: "11:00",
+              events: [
+                {
+                  description: "Arrivée de la fleuriste",
+                  actorIds: ["fleur"]
+                }
+              ]
+            },
+            {
               time: "13:00",
               events: [
                 {
@@ -193,7 +214,7 @@ export default {
               events: [
                 {
                   description: "Photographie des préparatifs de Sarah (vêtements, fleurs, voeux, alliance, etc.)",
-                  actorIds: ["sah", "aaj"]
+                  actorIds: ["sah", "guylou", "flo", "julie", "jenn", "eli", "camou", "aaj"]
                 }
               ]
             },
@@ -219,7 +240,8 @@ export default {
               time: "15:00",
               events: [
                 {
-                  description: "Enregistrement à l'auberge West Brome"
+                  description: "Enregistrement à l'auberge West Brome",
+                  actorIds: ["sah", "kbh", "ren", "bouboue", "friloux", "van"]
                 }
               ]
             },
@@ -294,7 +316,7 @@ export default {
               events: [
                 {
                   description: "Photos de la famille immédiate",
-                  actorIds: ["sah", "kbh", "guylou", "ren", "bouboue", "friloux", "flo", "aaj"]
+                  actorIds: ["sah", "kbh", "guylou", "ren", "bouboue", "friloux", "flo", "van", "isla", "aaj"]
                 }
               ]
             },
@@ -320,7 +342,8 @@ export default {
               time: "18:15",
               events: [
                 {
-                  description: "Invités sont dirigés vers la grange"
+                  description: "Invités, sauf le cortège, sont dirigés vers la grange",
+                  actorIds: ["lus", "flo"]
                 }
               ]
             },
@@ -332,8 +355,16 @@ export default {
                   actorIds: ["mf"]
                 },
                 {
-                  description: "Introduction des mariés et des parents",
-                  actorIds: ["lus", "flo", "sah", "kbh", "guylou", "ren", "bouboue", "friloux"]
+                  description: "Introduction du cortège",
+                  actorIds: ["lus", "flo", "pirrrz", "fres", "van", "isla", "julie", "jenn", "eli", "camou", "vache", "frank", "dave", "ant"]
+                },
+                {
+                  description: "Introduction des parents des mariés",
+                  actorIds: ["lus", "flo", "guylou", "ren", "bouboue", "friloux"]
+                },
+                {
+                  description: "Introduction des mariés",
+                  actorIds: ["lus", "flo", "sah", "kbh"]
                 }
               ]
             },
@@ -401,6 +432,15 @@ export default {
               ]
             },
             {
+              time: "20:10",
+              events: [
+                {
+                  description: "Discours de Camille",
+                  actorIds: ["camou"]
+                }
+              ]
+            },
+            {
               time: "20:15",
               events: [
                 {
@@ -435,8 +475,17 @@ export default {
               time: "21:15",
               events: [
                 {
-                  description: "Danse des parents",
-                  actorIds: ["sah", "kbh", "guylou", "ren", "bouboue", "friloux"]
+                  description: "Danse de Sarah avec son père",
+                  actorIds: ["sah", "ren"]
+                }
+              ]
+            },
+            {
+              time: "21:20",
+              events: [
+                {
+                  description: "Danse de Kevin avec sa mère",
+                  actorIds: ["kbh", "bouboue"]
                 }
               ]
             },
@@ -445,7 +494,7 @@ export default {
               events: [
                 {
                   description: "Début du party",
-                  actorIds: "tous"
+                  actorIds: "ALL"
                 }
               ]
             },
@@ -454,7 +503,7 @@ export default {
               events: [
                 {
                   description: "1er départ de la navette du vignoble vers l'auberge",
-                  actorIds: ["ren", "guylou", "flo", "pirrrz", "fres", "bouboue", "friloux", "julie", "jenn", "eli", "camou"]
+                  actorIds: "CORTEGE"
                 },
                 {
                   description: "Départ de la photographe",
@@ -485,7 +534,7 @@ export default {
               events: [
                 {
                   description: "2e départ de la navette du vignoble vers l'auberge",
-                  actorIds: ["ren", "guylou", "flo", "pirrrz", "fres", "bouboue", "friloux", "julie", "jenn", "eli", "camou"]
+                  actorIds: "CORTEGE"
                 }
               ]
             },

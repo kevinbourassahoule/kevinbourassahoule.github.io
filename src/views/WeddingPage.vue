@@ -296,6 +296,14 @@ export default {
     background-image: url("../assets/img/acteurs/dave.jpg");
   }
 
+  .actor-van {
+    background-image: url("../assets/img/acteurs/van.jpg");
+  }
+
+  .actor-isla {
+    background-image: url("../assets/img/acteurs/isla.jpg");
+  }
+
   .actor-caro {
     background-image: url("../assets/img/acteurs/caro.jpg");
   }
@@ -314,6 +322,10 @@ export default {
 
   .actor-2g {
     background-image: url("../assets/img/acteurs/2g.png");
+  }
+
+  .actor-fleur {
+    background-image: url("../assets/img/acteurs/fleur.jpg");
   }
 }
 

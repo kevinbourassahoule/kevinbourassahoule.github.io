@@ -35,41 +35,45 @@ export default {
         {
           actorId: "sah",
           items: [
-            "Se marier à Kev"
+            "Marier Kev"
           ]
         }, {
           actorId: "kbh",
           items: [
-            "Se marier à Sah",
+            "Marier Sah",
           ]
         }, {
           actorId: "guylou",
           items: [
             "Faire un speech avec René",
-            "Aider avec l'organisation de la table de desserts"
+            "Aider avec l'organisation de la table de desserts",
+            "Remmener les gens à l'ordre avec un fameux EILLE 👉"
           ]
         }, {
           actorId: "ren",
           items: [
             "Faire un speech avec Guylou",
             "Faire une danse avec Sah",
-            "Verser un nombre record de larmes"
+            "Verser toutes les larmes de son corps"
           ]
         }, {
           actorId: "friloux",
           items: [
-            "Faire un speech avec Geneviève"
+            "Faire un speech avec Geneviève",
+            "Porter 4 épaisseurs pour éviter de prendre froid un 21 août"
           ]
-        }, {
+        }, {          
           actorId: "bouboue",
           items: [
-            "Faire un speech avec David"
+            "Faire un speech avec David",
+            "Faire une danse avec Kev",
+            "Prononcer des mots d'une manière que Van pourra parodier"
           ]
         }, {
           actorId: "lus",
           items: [
             "Célébrer le mariage",
-            "Animer le mariage avec Flo (MC)",
+            "Animer le mariage avec Flo",
             "Faire respecter l'horaire",
             "Refuser toute occasion pour jouer au frisbee le 21 AOÛT 2022 (à noter au calendrier, c'est la date qu'on se marie " + 
               "<a class=\"underline text-emerald-900\" target=\"_blank\" href=\"mailto:cao.ludovic@gmail.com?subject=SOS%20-%20Sah%20et%20Kev%20se%20marient%20le%2021%20AO%C3%9BT%202022&body=Bonjour%20Ludovic%2C%0D%0A%0D%0ACeci%20est%20un%20rappel%20que%20tes%20bons%20amis%20SARAH%20D%C3%89RY%20et%20KEVIN%20BOURASSA-HOULE%20se%20marient%20le%2021%20AO%C3%9BT%202022%20au%20Vignoble%20de%20la%20Bauge.%20%20Puisque%20ce%20serait%20malaisant%20que%20notre%20c%C3%A9l%C3%A9brant%20manque%20%C3%A0%20cet%20appel%2C%20ta%20pr%C3%A9sence%20est%20de%20mise.%0D%0A%0D%0AAu%20plaisir%20de%20se%20resserrer%20la%20pince%20dans%20un%20avenir%20proche%2C%0D%0A%0D%0ASah%2C%20Kev%20ou%20quelqu'un%20en%20leur%20nom\">@Ludovic Cao</a>)",
@@ -78,9 +82,23 @@ export default {
         }, {
           actorId: "flo",
           items: [
-            "Animer le mariage avec Lud (MC)",
+            "Animer le mariage avec Lud",
             "Faire respecter l'horaire",
             "Rire très fort, mais à moins de 85 décibels (limitation de la salle)"
+          ]
+        }, {
+          actorId: "van",
+          items: [
+            "Donner les cues pour l'entrée de la cérémonie",
+            "Accompagner Isla pendant qu'elle remplit ses devoirs de cérémonie",
+            "S'assurer qu'Isla chigne moins fort que Sah",
+            "Faire des danses suspectes"
+          ]
+        }, {
+          actorId: "isla",
+          items: [
+            "Traîner un bouquet",
+            "Être adorbs"
           ]
         }, {
           actorId: "pirrrz",
@@ -91,12 +109,13 @@ export default {
         }, {
           actorId: "fres",
           items: [
-            "Faire un speech avec Pirrrz"
+            "Faire un speech avec Pirrrz",
+            "Résister à la tentation de porter des jogging-shorts bourgognes troués"
           ]
-        }, {
+        },{
           actorId: "camou",
           items: [
-            "Boire beaucoup d'eau"
+            "Boire et faire boire beaucoup d'eau"
           ]
         }, {
           actorId: "jenn",
@@ -121,6 +140,7 @@ export default {
         }, {
           actorId: "frank",
           items: [
+            "Boire et faire boire beaucoup de boisson interdite",
             "Oublier sa soirée",
             "Cibler les flancs"
           ]

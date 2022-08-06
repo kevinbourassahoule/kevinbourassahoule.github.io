@@ -103,24 +103,4 @@ export default {
 </script>
 
 <style lang="scss">
-  .ob-02-mask {
-    mask-image: url('../assets/img/olive-branches/ob-02.svg');
-    mask-repeat: no-repeat;
-  }
-  .ob-04-mask {
-    mask-image: url('../assets/img/olive-branches/ob-04.svg');
-    mask-repeat: no-repeat;
-  }
-  .ob-08-mask {
-    mask-image: url('../assets/img/olive-branches/ob-08.svg');
-    mask-repeat: no-repeat;
-  }
-  .ob-12-mask {
-    mask-image: url('../assets/img/olive-branches/ob-12.svg');
-    mask-repeat: no-repeat;
-  }
-  .ob-20-mask {
-    mask-image: url('../assets/img/olive-branches/ob-20.svg');
-    mask-repeat: no-repeat;
-  }
 </style>

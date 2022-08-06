@@ -186,6 +186,20 @@ export default new Vuex.Store({
         rehearsalId: "b0bdf9f2-d81f-40c8-893f-34d743cacff1"
       },
       {
+        id: "van",
+        name: "Vanessa Houle",
+        gender: "f",
+        plusOne: "San",
+        rehearsalName: "Van",
+        nickname: "Vanoushka",
+        rehearsalId: "d698e5c1-402a-41b6-b0d2-4b054e8ec465"
+      },
+      {
+        id: "isla",
+        name: "Isla Torres-Houle",
+        nickname: "Islacita"
+      },
+      {
         id: "aaj",
         name: "Andrée-Anne Joly"
       },
@@ -204,6 +218,10 @@ export default new Vuex.Store({
       {
         id: "2g",
         name: "Deux Gourmandes"
+      },
+      {
+        id: "fleur",
+        name: "Il était une fleur"
       },
     ],
     actorGroups: [
