@@ -47,7 +47,7 @@ export default {
           items: [
             "Faire un speech avec René",
             "Aider avec l'organisation de la table de desserts",
-            "Remmener les gens à l'ordre avec un fameux EILLE 👉"
+            "Ramener les gens à l'ordre avec un fameux EILLE 👉"
           ]
         }, {
           actorId: "ren",
@@ -84,6 +84,7 @@ export default {
           items: [
             "Animer le mariage avec Lud",
             "Faire respecter l'horaire",
+            "Faire un speech",
             "Rire très fort, mais à moins de 85 décibels (limitation de la salle)"
           ]
         }, {

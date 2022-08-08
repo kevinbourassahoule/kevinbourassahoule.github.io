@@ -161,7 +161,7 @@ export default {
           name: "Dimanche",
           moments: [
             {
-              time: "8:00",
+              time: "7:15",
               events: [
                 {
                   description: "Départ vers le vignoble",
@@ -170,7 +170,7 @@ export default {
               ]
             },
             {
-              time: "9:00",
+              time: "8:45",
               events: [
                 {
                   description: "Arrivée de la coiffeuse",
@@ -183,11 +183,11 @@ export default {
               ]
             },
             {
-              time: "9:15",
+              time: "9:00",
               events: [
                 {
                   description: "Début du maquillage du cortège",
-                  actorIds: ["sah", "flo", "camou", "france"]
+                  actorIds: ["sah", "guylou", "bouboue", "flo", "van", "camou", "eli", "jenn", "julie", "france"]
                 }
               ]
             },
@@ -241,7 +241,7 @@ export default {
               events: [
                 {
                   description: "Enregistrement à l'auberge West Brome",
-                  actorIds: ["sah", "kbh", "ren", "bouboue", "friloux", "van"]
+                  actorIds: ["sah", "kbh", "ren", "bouboue", "friloux", "flo", "van"]
                 }
               ]
             },
@@ -355,12 +355,12 @@ export default {
                   actorIds: ["mf"]
                 },
                 {
-                  description: "Introduction du cortège",
-                  actorIds: ["lus", "flo", "pirrrz", "fres", "van", "isla", "julie", "jenn", "eli", "camou", "vache", "frank", "dave", "ant"]
-                },
-                {
                   description: "Introduction des parents des mariés",
                   actorIds: ["lus", "flo", "guylou", "ren", "bouboue", "friloux"]
+                },
+                {
+                  description: "Introduction du cortège",
+                  actorIds: ["lus", "flo", "pirrrz", "fres", "van", "isla", "julie", "jenn", "eli", "camou", "vache", "frank", "dave", "ant"]
                 },
                 {
                   description: "Introduction des mariés",
@@ -373,7 +373,7 @@ export default {
               events: [
                 {
                   description: "Première danse des mariés",
-                  actorIds: ["sah", "kbh"]
+                  actorIds: ["lus", "flo", "sah", "kbh"]
                 }
               ]
             },
@@ -405,6 +405,24 @@ export default {
               ]
             },
             {
+              time: "19:05",
+              events: [
+                {
+                  description: "Discours de la demoiselle d'honneur",
+                  actorIds: ["flo"]
+                }
+              ]
+            },
+            {
+              time: "19:15",
+              events: [
+                {
+                  description: "Discours des garçons d'honneur",
+                  actorIds: ["pirrrz", "fres"]
+                }
+              ]
+            },
+            {
               time: "19:30",
               events: [
                 {
@@ -414,25 +432,7 @@ export default {
               ]
             },
             {
-              time: "20:00",
-              events: [
-                {
-                  description: "Discours de la demoiselle d'honneur",
-                  actorIds: ["flo"]
-                }
-              ]
-            },
-            {
               time: "20:05",
-              events: [
-                {
-                  description: "Discours des garçons d'honneur",
-                  actorIds: ["pirrrz", "fres"]
-                }
-              ]
-            },
-            {
-              time: "20:10",
               events: [
                 {
                   description: "Discours de Camille",
@@ -441,7 +441,7 @@ export default {
               ]
             },
             {
-              time: "20:15",
+              time: "20:20",
               events: [
                 {
                   description: "Discours des parents à Sarah",
@@ -450,7 +450,7 @@ export default {
               ]
             },
             {
-              time: "20:30",
+              time: "20:40",
               events: [
                 {
                   description: "Discours des parents à Kevin",
@@ -459,11 +459,11 @@ export default {
               ]
             },
             {
-              time: "20:45",
+              time: "20:50",
               events: [
                 {
                   description: "Découpage du gâteau",
-                  actorIds: ["sah", "kbh"]
+                  actorIds: ["lus", "flo", "sah", "kbh"]
                 },
                 {
                   description: "Début du service de la sweet table et station café",
@@ -476,7 +476,7 @@ export default {
               events: [
                 {
                   description: "Danse de Sarah avec son père",
-                  actorIds: ["sah", "ren"]
+                  actorIds: ["lus", "flo", "sah", "ren"]
                 }
               ]
             },
@@ -485,7 +485,7 @@ export default {
               events: [
                 {
                   description: "Danse de Kevin avec sa mère",
-                  actorIds: ["kbh", "bouboue"]
+                  actorIds: ["lus", "flo", "kbh", "bouboue"]
                 }
               ]
             },
