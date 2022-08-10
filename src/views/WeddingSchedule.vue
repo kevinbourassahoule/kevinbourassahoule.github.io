@@ -195,7 +195,7 @@ export default {
               time: "11:00",
               events: [
                 {
-                  description: "Arrivée de la fleuriste",
+                  description: "Arrivée de la fleuriste (à confirmer)",
                   actorIds: ["fleur"]
                 }
               ]

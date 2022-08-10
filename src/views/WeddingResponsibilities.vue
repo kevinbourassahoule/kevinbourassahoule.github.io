@@ -47,6 +47,8 @@ export default {
           items: [
             "Faire un speech avec René",
             "Aider avec l'organisation de la table de desserts",
+            "Aider à placer les tables le matin",
+            "Placer les marque-places en fonction du plan de salle pendant le first look, après l'arrivée du traiteur",
             "Ramener les gens à l'ordre avec un fameux EILLE 👉"
           ]
         }, {
@@ -85,6 +87,8 @@ export default {
             "Animer le mariage avec Lud",
             "Faire respecter l'horaire",
             "Faire un speech",
+            "Aider à placer les tables le matin",
+            "Placer les marque-places en fonction du plan de salle pendant le first look, après l'arrivée du traiteur",
             "Rire très fort, mais à moins de 85 décibels (limitation de la salle)"
           ]
         }, {
@@ -105,50 +109,62 @@ export default {
           actorId: "pirrrz",
           items: [
             "Faire un speech avec Frestopher",
+            "Surveiller l'horaire au cas où Lud et Flo foirent",
             "Prendre l'occasion d'être entouré de nouveaux gens pour répéter ses histoires préférées"
           ]
         }, {
           actorId: "fres",
           items: [
             "Faire un speech avec Pirrrz",
+            "Surveiller l'horaire au cas où Lud et Flo foirent",
             "Résister à la tentation de porter des jogging-shorts bourgognes troués"
           ]
         },{
           actorId: "camou",
           items: [
+            "Aider à placer les tables le matin",
+            "Placer les marque-places en fonction du plan de salle pendant le first look, après l'arrivée du traiteur",
             "Boire et faire boire beaucoup d'eau"
           ]
         }, {
           actorId: "jenn",
           items: [
+            "Aider à placer les tables le matin",
+            "Placer les marque-places en fonction du plan de salle pendant le first look, après l'arrivée du traiteur",
             "Partager la soirée intégrale sur Instagram et insister que le hashtag <a class=\"underline text-emerald-900\" target=\"_blank\" href=\"https://www.instagram.com/explore/tags/SarahEtKevin2022\">#SarahEtKevin2022</a> soit inclus dans toutes les publications des invités"
           ]
         }, {
           actorId: "eli",
           items: [
+            "Aider à placer les tables le matin",
+            "Placer les marque-places en fonction du plan de salle pendant le first look, après l'arrivée du traiteur",
             "Empêcher Sah de regarder son BPM sur sa montre"
           ]
         }, {
           actorId: "julie",
           items: [
+            "Aider à placer les tables le matin",
+            "Placer les marque-places en fonction du plan de salle pendant le first look, après l'arrivée du traiteur",
             "Surveiller les Proteau et minimiser le rayon de vin renversé entourant Jocelyne"
           ]
         }, {
           actorId: "vache",
           items: [
+            "Ramasser la boîte cadeaux en soirée vers 19h00 et la rapporter dans la salle de préparatifs",
             "Jongler la complexité d'être à la fois groomsman et bridesman"
           ]
         }, {
           actorId: "frank",
           items: [
+            "Déplacer l'arche de l'espace cérémonie à l'intérieur derrière la table d'honneur pendant le cocktail",
             "Boire et faire boire beaucoup de boisson interdite",
-            "Oublier sa soirée",
+            "Oublier tout entre 22h00 et 10h00",
             "Cibler les flancs"
           ]
         }, {
           actorId: "ant",
           items: [
-            "Memer compulsivement",
+            "Memer",
             "Interpéter la danse du crabe"
           ]
         }, {
