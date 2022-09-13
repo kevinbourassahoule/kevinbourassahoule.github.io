@@ -4,12 +4,14 @@
     "details": "Details",
     "location": "Location",
     "ourWedding": "Our wedding",
+    "pictures": "Pictures",
     "schedule": "Schedule"
   },
   "fr": {
     "details": "Détails",
     "location": "Lieu",
     "ourWedding": "Notre mariage",
+    "pictures": "Photos",
     "schedule": "Horaire"
   }
 }
@@ -70,12 +72,6 @@
           {{ link.label }}
         </SkLink>
       </router-link>
-      <a
-        href="https://form.simplesurvey.com/f/l/rsvp-sk"
-        class="uppercase text-white text-opacity-50 hover:text-opacity-75 py-8 md:py-3 md:w-48 order-3"
-      >
-        RSVP
-      </a>
     </div>
     <div class="h-14"></div>
   </div>
@@ -93,16 +89,12 @@ export default {
         {
           routeName: "wedding-home",
           label: this.$t("ourWedding")
-        },
-        {
-          routeName: "wedding-location",
-          label: this.$t("location")
         }
       ],
       rightLinks: [
         {
-          routeName: "wedding-details",
-          label: this.$t("details")
+          routeName: "wedding-pictures",
+          label: this.$t("pictures")
         }
       ]
     };

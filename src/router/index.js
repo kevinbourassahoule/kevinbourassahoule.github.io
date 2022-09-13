@@ -71,6 +71,14 @@ const routes = [
               )
           },
           {
+            path: "photos",
+            name: "wedding-pictures",
+            component: () =>
+              import(
+                /* webpackChunkName: "wedding" */ "../views/WeddingPictures.vue"
+              )
+          },
+          {
             path: "assets",
             name: "wedding-assets",
             component: () =>

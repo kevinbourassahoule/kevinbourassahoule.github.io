@@ -251,6 +251,7 @@ export default new Vuex.Store({
         case "wedding-ceremony": return "#ad8352";
         case "wedding-responsibilities": return "#ad8352";
         case "wedding-rehearsal": return "#ffe462";
+        case "wedding-pictures": return "#fff";
         default: return "#fff";
       }
     }

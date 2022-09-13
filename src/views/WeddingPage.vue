@@ -90,6 +90,8 @@ export default {
         case "wedding-responsibilities":
           this.bgName = "waterfall";
           break;
+        case "wedding-pictures":
+          this.bgName = "first-look"
       }
     }
   },
@@ -368,6 +370,10 @@ export default {
 
   &.waterfall {
     background-image: url("../assets/img/chute-1.min.jpg");
+  }
+
+  &.first-look {
+    background-image: url("../assets/img/first-look-1.jpg");
   }
 }
 
