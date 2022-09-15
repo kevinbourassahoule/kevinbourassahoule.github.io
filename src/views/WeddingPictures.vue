@@ -4,7 +4,7 @@
     <div class="hidden w-96"></div>
 
     <div class="text-center h-screen flex flex-col">
-      <div class="mt-auto mb-6 sm:mb-12 md:mb-24 mx-2">
+      <div class="mt-auto mb-24 mx-2">
         <h1 class="text-heading text-2xl sm:text-4xl md:text-5xl lg:text-6xl uppercase mb-3 sm:mb-8">Photos de notre mariage</h1>
         <p class="max-w-prose mx-auto text-lg sm:text-xl md:text-2xl mb-2">
           Merci à tous d'avoir contribué à la magie de cette journée en la partageant avec nous.
@@ -42,7 +42,7 @@
               <div class="animate-ping absolute top-0 right-0 bottom-0 left-0 rounded-full bg-current opacity-75"></div>
               <div class="flex items-center justify-center w-full h-full rounded-full bg-paper z-10">Chargement...</div>
             </div>
-            <div v-else class="mx-auto ob-19-mask bg-current w-24 h-24"></div>
+            <div v-else class="mx-auto ob-19-mask bg-current w-12 h-24"></div>
           </div>
           <div class="h-screen"></div>
         </div>
