@@ -161,7 +161,7 @@ export default {
   },
   methods: {
     async getImages() {
-      const fetchUrl = this.publicPath + "img/mariage/lq";
+      let fetchUrl = this.publicPath + "img/mariage/lq";
       if (!this.isDevelopmentEnvironment) {
         const mainBranchResponse = await fetch("https://api.github.com/repos/kevinbourassahoule/kevinbourassahoule.github.io/branches/main", { headers: { "Accept": "application/json" } });
         const mainBranch = await mainBranchResponse.json();
