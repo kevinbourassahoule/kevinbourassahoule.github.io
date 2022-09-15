@@ -221,6 +221,11 @@ export default {
     mask-repeat: no-repeat;
   }
 
+.ob-19-mask {
+  mask-image: url('../assets/img/olive-branches/ob-19.svg');
+  mask-repeat: no-repeat;
+}
+
   .ob-20-mask {
     mask-image: url('../assets/img/olive-branches/ob-20.svg');
     mask-repeat: no-repeat;
