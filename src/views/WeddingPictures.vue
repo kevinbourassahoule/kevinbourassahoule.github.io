@@ -80,10 +80,6 @@ import Masonry from "masonry-layout";
 import imagesLoaded from "imagesloaded";
 import { uniq, sortBy, deburr } from "lodash";
 
-// https://codepen.io/desandro/pen/kvoBBo
-
-const imageUrlPrefix = "https://raw.githubusercontent.com/kevinbourassahoule/kevinbourassahoule.github.io/main/docs/img/";
-
 export default {
   name: "WeddingPictures",
   data() {
@@ -195,7 +191,7 @@ export default {
         path: imageInfo.path,
         urlLQ: this.isDevelopmentEnvironment
           ? this.publicPath + "img/mariage/lq/" + imageInfo.path
-          : imageUrlPrefix + "lq/" + imageInfo.path,
+          : "https://raw.githubusercontent.com/kevinbourassahoule/kevinbourassahoule.github.io/main/docs/img/mariage/lq/" + imageInfo.path,
         categories: [],
         actors: [],
         position: 999999,
